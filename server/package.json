@@ -1,0 +1,25 @@
+{
+  "name": "classifieds-for-corporates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darshann12/ClassifiedsForCorporate.git"
+  },
+  "keywords": [
+    "classifieds",
+    "corporate",
+    "sell",
+    "buy"
+  ],
+  "author": "DARSHAN N",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darshann12/ClassifiedsForCorporate/issues"
+  },
+  "homepage": "https://github.com/darshann12/ClassifiedsForCorporate#readme"
+}
