@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/darshann12/ClassifiedsForCorporate/issues"
   },
-  "homepage": "https://github.com/darshann12/ClassifiedsForCorporate#readme"
+  "homepage": "https://github.com/darshann12/ClassifiedsForCorporate#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
