@@ -1,14 +1,13 @@
 var user = require('./../models/user');
 var db=require('./../config/mongoconnection');
 var path = require('path');
-var session = require('express-session');
+
 
 
 var userController={};
 
-userController.registeruser=function(req, res,next)
-{
-    console.log('inRegisterUser');
+userController.createUser=function(req, res,next){
+    
     console.log(req.body);
     
     //object.save can be used as a alternative
@@ -43,8 +42,7 @@ userController.registeruser=function(req, res,next)
 }
 
 
-userController.login=function(req, res,next)
-{
+userController.login=function(req, res,next){
     var username = req.body.username;
     var password = req.body.password;
     console.log(username);
@@ -94,4 +92,4 @@ userController.findUsers = function(req,res,next){
 
 }
 
-module.exports.userController = userController;
+module.exports = userController;
