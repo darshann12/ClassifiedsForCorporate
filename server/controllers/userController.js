@@ -15,8 +15,8 @@ userController.registeruser=function(req, res,next)
   user.find({username : req.body.username},function(err,docs){
   if(docs.length == 0){
         user.create({
-            fname : req.body.fname,
-            lname : req.body.lname,
+            firstName : req.body.firstName,
+            lastName : req.body.lastName,
             username : req.body.username,
             password : req.body.password,
             telephone:req.body.telephone,
@@ -27,7 +27,7 @@ userController.registeruser=function(req, res,next)
             if (err)
                 res.send(err);
             else{
-                console.log("user :"+user.fname+" is saved");
+                console.log("user :"+user.firstName+" is saved");
                 res.redirect('/');
           
             }});
