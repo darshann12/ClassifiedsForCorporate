@@ -8,7 +8,7 @@ var adSchema = {
             }
             ],
     isOpenForSale:Boolean,
-    _creator : { type: Number, ref: 'User' }
+    _creator : { type: Number, ref: 'user' }
     
    
 };
@@ -16,5 +16,5 @@ var adSchema = {
 
 var adSchemaObj = new dbObj.Schema(adSchema, {collection:"ad", versionKey: false});  //creates our  schema structure
 
-var adObj       = dbObj.model("ad", adSchemaObj);  //uses the schema created to form our model
-module.exports       = adObj;
+var adObj = dbObj.model("ad", adSchemaObj);  //uses the schema created to form our model
+module.exports = adObj;

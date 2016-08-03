@@ -11,6 +11,6 @@ config.mongo     = {};
 config.mongo.db   = 'cfc';
 config.mongo.host = 'localhost';
 config.mongo.port = '27017';
-config.mongo.ConnectionUrl ='mongodb://127.0.0.1:27017/doc';
+config.mongo.ConnectionUrl ='mongodb://127.0.0.1:27017/cfc';
 
 module.exports   = config;
