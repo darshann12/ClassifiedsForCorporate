@@ -6,7 +6,7 @@ var path = require('path');
 
 var userController={};
 
-userController.createUser=function(req, res,next){
+userController.createUser=function(req, res){
     
     console.log(req.body);
     
