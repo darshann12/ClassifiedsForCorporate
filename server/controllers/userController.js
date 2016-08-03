@@ -11,8 +11,7 @@ userController.createUser=function(req, res,next){
     console.log(req.body);
     
     //object.save can be used as a alternative
-  user.find({username : req.body.username},function(err,docs){
-  if(docs.length == 0){
+
         user.create({
             firstName : req.body.firstName,
             lastName : req.body.lastName,
@@ -29,14 +28,11 @@ userController.createUser=function(req, res,next){
                 console.log("user :"+user.firstName+" is saved");
                 res.redirect('/');
           
-            }});
-  }
-  else {
-  console.log("usename is already taken");
-                      res.redirect('/'); //resend to certain url
- }
+            }
+        });
+
   
-  })
+
   
     
 }
@@ -79,7 +75,7 @@ userController.logout = function(req,res,next){
 }
 
 
-userController.findUsers = function(req,res,next){
+userController.searchUsers = function(req,res,next){
  user.find({'name' : req.body.name},function(err,docs){
  if(err){
  console.log("error occured while searching");
@@ -91,5 +87,48 @@ userController.findUsers = function(req,res,next){
  })
 
 }
+
+
+userController.deleteUser = function(req,res){
+    var query ={'username' : req.body.username};
+    user.remove(query,function(err){
+    if(err){
+        console.log("could not delete");
+    }
+        else {
+         console.log("deleted"); 
+            res.redirect(); //where you want to go 
+        }
+    
+    
+    })
+    
+    
+}
+
+
+
+userController.updateUser = function(req,res){
+    var query ={'username' : req.body.user.username};
+//    user.findOne(query,function(err,doc){
+//     if(err){
+//     console.log("some error has occured");}
+//    else{
+//    doc = req.body.user;    
+//    user.save(doc); 
+//    }
+//        
+//    })
+    
+    user.findOneAndUpdate(query, req.user, {upsert:false}, function(err, doc){
+    if(err){
+     console.log("some error has occured");}
+    else{
+    console.log("data updated");
+    }
+});
+    
+}
+    
 
 module.exports = userController;
