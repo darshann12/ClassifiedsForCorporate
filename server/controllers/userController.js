@@ -12,16 +12,9 @@ userController.createUser=function(req, res,next){
     
     //object.save can be used as a alternative
 
-        user.create({
-            firstName : req.body.firstName,
-            lastName : req.body.lastName,
-            username : req.body.username,
-            password : req.body.password,
-            telephone:req.body.telephone,
-            address:req.body.address,
-            email:req.body.email, 
-            accessid: '0'
-            }, function(err, user) {
+        user.create(
+         req.body.user
+            , function(err, user) {
             if (err)
                 res.send(err);
             else{
