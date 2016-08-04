@@ -14,7 +14,7 @@ if(connectionInstance) {
   return;
 }
 
-connectionInstance  =  mongoose.connect('mongodb://127.0.0.1:27017/doc');
+connectionInstance  =  mongoose.connect(config.mongo.ConnectionUrl);
 
 /*HANDLE CONNECTION ERRORS*/
 db.on('error', function (err) {

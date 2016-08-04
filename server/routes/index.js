@@ -2,6 +2,8 @@ var express = require('express');
 var users = require('../routes/users');
 var router = express.Router();
 var path = require('path');
+
+
 router.use('/users', users);
 
 router.get('/', function(req, res){
