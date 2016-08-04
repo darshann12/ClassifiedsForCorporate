@@ -1,15 +1,13 @@
 var dbObj = require('./../config/mongoconnection'); //mongoose object required to communicate with database
-var mongoose = require('mongoose');
 var userSchema = {
-    _id : Number,
-    firstName: String,
-	lastName: String,
-    username: String,
-    password: String,
-	telephone: String,
-	address: String,
-	email: String,
-    ads: [{ type: mongoose.Schema.Types.ObjectId, ref: 'ad' }]
+    firstName:{type:String, required : true},
+	lastName: {type:String, required : true},
+    username: {type:String, required : true,unique : true},
+    password: {type:String, required : true},
+	telephone: {type:Number,required : true,unique : true},
+	address: {type:String, required : true},
+	email: {type:String, required : true,unique : true},
+    ads: [{ type: Number , unique : true }],
 };
 
 
