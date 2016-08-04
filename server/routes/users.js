@@ -8,7 +8,7 @@ var userController=require('./../controllers/userController');
 router.post('/',userController.createUser);
 
 //GET is read
-router.get('/',userController.searchUsers );
+router.get('/',userController.getUser );
 
 //PUT is update
 router.put('/', userController.updateUser);

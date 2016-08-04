@@ -31,45 +31,10 @@ userController.createUser=function(req, res){
 }
 
 
-userController.login=function(req, res,next){
-    var username = req.body.username;
-    var password = req.body.password;
-    console.log(username);
-     console.log(password);
-     console.log("hello login");
-   user.findOne({"username": username },function(err,record){
-       if(record)
-       {
-           console.log(records.password);
-           console.log(password);
-           if(records.password==password)
-           {
-               sessionData = req.session;
-               sessionData.username = username;
-             
-           }
-  }
-    
- });
-    
-}
-
-userController.logout = function(req,res,next){
-  req.session.destroy(function(err){
-  if(err){
-  console.log(err);}
-      else{
-       console.log("user logged out successfully");
-          res.redirect('/');
-          
-      }
-  })  
-
-}
 
 
-userController.searchUsers = function(req,res,next){
- user.find({'name' : req.body.name},function(err,docs){
+userController.getUser = function(req,res,next){
+ user.find({'username : req.body.username},function(err,docs){
  if(err){
  console.log("error occured while searching");
      console.log(err);
@@ -122,6 +87,43 @@ userController.updateUser = function(req,res){
 });
     
 }
+ 
+
+
+userController.login=function(req, res,next){
+    var username = req.body.username;
+    var password = req.body.password;
+    console.log(username);
+     console.log(password);
+     console.log("hello login");
+   user.findOne({"username": username },function(err,record){
+       if(record)
+       {
+           console.log(records.password);
+           console.log(password);
+           if(records.password==password)
+           {
+               sessionData = req.session;
+               sessionData.username = username;
+             
+           }
+  }
     
+ });
+    
+}
+
+userController.logout = function(req,res,next){
+  req.session.destroy(function(err){
+  if(err){
+  console.log(err);}
+      else{
+       console.log("user logged out successfully");
+          res.redirect('/');
+          
+      }
+  })  
+
+}
 
 module.exports = userController;
