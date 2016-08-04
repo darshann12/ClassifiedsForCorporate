@@ -13,6 +13,7 @@ var adSchema = {
             url:String
             }
             ],
+<<<<<<< HEAD
     isOpenForSale:{type:Boolean,required : true },
     creator : { type: String },
     price : {type:Number ,required: true},
@@ -21,9 +22,21 @@ var adSchema = {
                  date: Date.now,
                  user : String}]
   };
+=======
+    isOpenForSale:Boolean,
+    _creator : { type: Number, ref: 'user' }
+    
+   
+};
+>>>>>>> ca125320403ca690dc167f76ec4ed96d97a5b1a7
 
 
 var adSchemaObj = new dbObj.Schema(adSchema, {collection:"advertisements", versionKey: false});  //creates our  schema structure
 
+<<<<<<< HEAD
 var adObj       = dbObj.model("advertisements", adSchemaObj);  //uses the schema created to form our model
 module.exports       = adObj;
+=======
+var adObj = dbObj.model("ad", adSchemaObj);  //uses the schema created to form our model
+module.exports = adObj;
+>>>>>>> ca125320403ca690dc167f76ec4ed96d97a5b1a7
