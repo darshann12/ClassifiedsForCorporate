@@ -8,9 +8,9 @@ var transactionController=require('./../controllers/transactionController');
 router.post('/',transactionController.createTransaction);
 
 //GET is read
-router.get('/',transactionController.searchTransaction );
+router.get('/',transactionController.getTransaction );
 
-
+router.search('/search',transactionController.searchTransaction );
 
 //DELETE is ofcourse delete :-)u
 router.delete('/', transactionController.deleteTransaction);
