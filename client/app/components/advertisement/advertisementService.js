@@ -1,4 +1,4 @@
-var app.angular.module('cfc');
+var app=angular.module('cfc');
 app.factory('advertisementService', ['$http', function($http) {
                 var factory = {};
 
