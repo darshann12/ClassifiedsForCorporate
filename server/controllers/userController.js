@@ -24,17 +24,10 @@ userController.createUser=function(req, res){
             }
         });
 
-  
-
-  
-    
 }
 
-
-
-
 userController.getUser = function(req,res,next){
- user.find({'username : req.body.username},function(err,docs){
+ user.find({'username ': req.body.username},function(err,docs){
  if(err){
  console.log("error occured while searching");
      console.log(err);
@@ -78,7 +71,7 @@ userController.updateUser = function(req,res){
 //        
 //    })
     
-    user.findOneAndUpdate(query, req.user, {upsert:false}, function(err, doc){
+    user.findOneAndUpdate(query, req.body.user, {upsert:false}, function(err, doc){
     if(err){
      console.log("some error has occured");}
     else{
