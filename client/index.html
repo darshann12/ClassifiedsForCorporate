@@ -10,18 +10,31 @@
     <meta name="author" content="">
 
     <!-- Bootstrap Core CSS -->
+
+    <!-- Custom Fonts -->
+
     <link href="/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Theme CSS -->
+
+    <link href="/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="assets/css/creative.min.css" rel="stylesheet">
+    <link href="/assets/css/creative.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <script src="/assets/libs/jquery/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
      <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
@@ -30,7 +43,7 @@
     <script src="/app/app.routes.js"></script>
     <script src="/app/components/home/homeCtrl.js"></script>
     <script src="/app/components/advertisement/advertisementCtrl.js"></script>
-
+ 
 </head>
 
 <body id="page-top" ng-app="cfc">
@@ -71,8 +84,9 @@
     
     
     <section id="services">
-    
+
     </section>
+
     <div ui-view="contentView"></div>
     
     
@@ -93,12 +107,10 @@
             </div>
         </div>
     </section>
-    
- <!--   <script type="text/ng-template" id="content" ng-include="/app/components/home/home.js">
-    
-    
-    </script>-->
-    
+
+
+    <script src="/assets/libs/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="/assets/libs/bootstrap/js/bootstrap.min.js"></script>
 
@@ -108,8 +120,8 @@
     <script src="/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="/assets/js/creative.min.js"></script>
 
+    <script src="/assets/js/creative.min.js"></script>
 </body>
 
 </html>
