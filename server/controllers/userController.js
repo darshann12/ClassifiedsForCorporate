@@ -24,14 +24,7 @@ userController.createUser=function(req, res){
             }
         });
 
-  
-
-  
-    
 }
-
-
-
 
 userController.getUser = function(req,res,next){
  user.find({'username ': req.body.username},function(err,docs){
