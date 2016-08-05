@@ -18,8 +18,8 @@ var app=angular.module("cfc");
                          $state.go('book');
                     };
                 }]);*/
-app.controller("homeController",['$scope',function($scope){
-    alert("ha");
+    app.controller("homeCtrl",['$scope',function($scope){
+        alert("ha");
                         $scope.names=[
                         {
                             name:"shalvi",
