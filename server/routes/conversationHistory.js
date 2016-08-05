@@ -8,7 +8,7 @@ var conversationHistoryController=require('./../controllers/conversationHistoryC
 router.post('/',conversationHistoryController.updateConversationHistory);
 
 //GET is read
-router.get('/',conversationHistoryController.searchConversationHistory );
+router.get('/',conversationHistoryController.getConversationHistory );
 
 //PUT is update
 router.put('/', conversationHistoryController.updateConversationHistory);
@@ -16,6 +16,7 @@ router.put('/', conversationHistoryController.updateConversationHistory);
 //DELETE is ofcourse delete :-)u
 router.delete('/', conversationHistoryController.deleteConversationHistory);
 
+router.get('/search',conversationHistoryController.searchConversationHistory );
 
 
 module.exports = router;
