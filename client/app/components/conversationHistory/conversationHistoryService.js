@@ -45,7 +45,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                                 return "cannot delete conversationHistory";
                             });
 
-
-                        return factory;
                     }
+                        return factory;
+                    
 }]);

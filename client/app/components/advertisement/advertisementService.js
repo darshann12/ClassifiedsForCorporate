@@ -45,7 +45,7 @@ app.factory('advertisementService', ['$http', function($http) {
                                 return "cannot fetch user";
                             });
 
-
-                        return factory;
                     }
+                        return factory;
+                    
 }]);
