@@ -10,8 +10,7 @@ router.post('/',transactionController.createTransaction);
 //GET is read
 router.get('/',transactionController.searchTransaction );
 
-//PUT is update
-router.put('/', transactionController.updateTransaction);
+
 
 //DELETE is ofcourse delete :-)u
 router.delete('/', transactionController.deleteTransaction);

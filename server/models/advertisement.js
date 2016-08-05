@@ -19,7 +19,7 @@ var advertisementSchema = {
     price : {type:Number ,required: true},
     isNegotiable :{type:Boolean,required : true },
     comments :[{ body: String, 
-                 date: Date.now,
+                 date:{ type: Date, default: Date.now },
                  user : String}],
 
     isOpenForSale:Boolean
@@ -30,7 +30,7 @@ var advertisementSchema = {
 
 
 
-var advertisementSchemaObj = new dbObj.Schema(advertisementSchema, {collection:"advertisements", versionKey: false});  //creates our  schema 
+var advertisementSchemaObj = new dbObj.Schema(advertisementSchema, {collection:"advertisements", versionKey: false});  //creates schema 
 
 
 var advertisementObj      = dbObj.model("advertisements", advertisementSchemaObj);  //uses the schema created to form our model

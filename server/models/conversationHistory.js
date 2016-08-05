@@ -8,7 +8,7 @@ message : { type : String,required : true},
 date : { type: Date, default: Date.now }
 }
 
-var convObj = new dbObj.Schema(convoSchema,{collection:"conversationHistory",version : false}));
+var conversationShemaObj = new dbObj.Schema(conversationHistorySchema,{collection:"conversationHistory",version : false});
 
-var conversationObj = dbObj.Schema("conversationHistory",transObj);
+var conversationObj = dbObj.model("conversationHistory",conversationShemaObj);
 module.exports = conversationObj;
