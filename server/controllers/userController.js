@@ -7,9 +7,8 @@ var url = require('url');
 var userController={};
 
 userController.createUser=function(req, res){
-    
-    console.log(req.body);
-        user.create(
+       
+    user.create(
          req.body.user
             , function(err, user) {
             if (err)
@@ -27,7 +26,7 @@ userController.getUser = function(req,res,next){
 var url_parts = url.parse(req.url, true);
 var query = url_parts.query;
 console.log(query);
- user.find({'query.username': req.body.username},function(err,docs){
+ user.find({'username': query.username},function(err,docs){
  if(err){
  console.log("error occured while searching");
      console.log(err);
@@ -41,7 +40,6 @@ console.log(query);
 
 
 userController.deleteUser = function(req,res){
-    console.log(req.body);
     var query ={'username' : req.body.username};
     user.remove(query,function(err){
     if(err){

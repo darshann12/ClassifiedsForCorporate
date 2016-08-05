@@ -1,16 +1,15 @@
 var transaction = require('./../models/transactions');
 var db=require('./../config/mongoconnection');
 var path = require('path');
+var url = require('url');
 
 
 var transactionController={};
 
 transactionController.createTransaction= function(req,res){
-     console.log(req.body);
+  
     
-    //object.save can be used as a alternative
-
-        transaction.create(
+    transaction.create(
          req.body.transaction
             ,function(err, user) {
             if (err)
@@ -37,7 +36,11 @@ if(err){
 }
 
 transactionController.getTransaction = function(req,res){
-     transaction.find({'_id': req.body._id},function(err,docs){
+var url_parts = url.parse(req.url, true);
+var query = url_parts.query;
+    console.log(query._id);
+    if (query._id.match(/^[0-9a-fA-F]{24}$/)) {
+     transaction.find({'_id': query._id},function(err,docs){
  if(err){
  console.log("error occured while get");
      console.log(err);
@@ -46,7 +49,7 @@ transactionController.getTransaction = function(req,res){
       res.json(docs);    
      }
  })
-    
+    }
 }
 
 transactionController.searchTransaction = function(req,res){
@@ -62,7 +65,7 @@ transactionController.searchTransaction = function(req,res){
    if('dateAfter' in options){
         query = {
             date : {"$lte" : option.dateExp}, 
-        }
+            }
     }
 
  transaction.find(query,function(err,docs){
