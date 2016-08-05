@@ -45,8 +45,8 @@ app.factory('userService', ['$http', function($http) {
                                 return "cannot fetch user";
                             });
 
-
-                        return factory;
                     }
+                        return factory;
+                    
                     
 }]);
