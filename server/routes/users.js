@@ -8,13 +8,16 @@ var userController=require('./../controllers/userController');
 router.post('/',userController.createUser);
 
 //GET is read
-//router.get('/user', );
+router.get('/',userController.getUser );
 
 //PUT is update
-//router.put('/user', );
+router.put('/', userController.updateUser);
 
 //DELETE is ofcourse delete :-)u
-//router.get('/user', );
+router.delete('/', userController.deleteUser);
 
+router.post('/login',userController.login);
+
+router.post('/logout',userController.logout);
 
 module.exports = router;
