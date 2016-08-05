@@ -1,28 +1,25 @@
-var app=angular.module("myApp");
+var app=angular.module("cfc");
 
 app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider){
+    $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('home',{
-            url:'/home',
-            views : {"viewA":{
-                    templateUrl:'home.html',
-                    controller:
-            },
-                "viewB":{
-                    templateUrl:"room.html"
-                }
+          url:"/home",
+            views : {
+                    "contentView":{
+                        templateUrl:"app/components/home/home.html"
+                    }
             }
-           
-        })
-        .state('about',{
-            url:"/about",
-            templateUrl:"about.html"
-        })
-        .state('room',{
-            url:"/room",
-            views:{ "viewA":{
-                   templateUrl:"room.html"
-                }
+         })
+        .state('advertisement',{
+            url:"/advertisement/:category?book",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/advertisement.html"
+                    }
             }
         })
+                
+       
+        
 }]);
