@@ -1,7 +1,7 @@
 var user = require('./../models/user');
 var db=require('./../config/mongoconnection');
 var path = require('path');
-
+var url = require('url');
 
 
 var userController={};
@@ -9,9 +9,6 @@ var userController={};
 userController.createUser=function(req, res){
     
     console.log(req.body);
-    
-    //object.save can be used as a alternative
-
         user.create(
          req.body.user
             , function(err, user) {
@@ -27,7 +24,10 @@ userController.createUser=function(req, res){
 }
 
 userController.getUser = function(req,res,next){
- user.find({'username ': req.body.username},function(err,docs){
+var url_parts = url.parse(req.url, true);
+var query = url_parts.query;
+console.log(query);
+ user.find({'query.username': req.body.username},function(err,docs){
  if(err){
  console.log("error occured while searching");
      console.log(err);
@@ -41,6 +41,7 @@ userController.getUser = function(req,res,next){
 
 
 userController.deleteUser = function(req,res){
+    console.log(req.body);
     var query ={'username' : req.body.username};
     user.remove(query,function(err){
     if(err){
@@ -61,20 +62,13 @@ userController.deleteUser = function(req,res){
 
 userController.updateUser = function(req,res){
     var query ={'username' : req.body.user.username};
-//    user.findOne(query,function(err,doc){
-//     if(err){
-//     console.log("some error has occured");}
-//    else{
-//    doc = req.body.user;    
-//    user.save(doc); 
-//    }
-//        
-//    })
-    
+  console.log(req.body.user.telephone);
     user.findOneAndUpdate(query, req.body.user, {upsert:false}, function(err, doc){
     if(err){
      console.log("some error has occured");}
     else{
+        res.json(req.body.user);
+        console.log(doc);
     console.log("data updated");
     }
 });
