@@ -7,13 +7,13 @@ var url = require('url');
 var advertisementController ={};
 
 advertisementController.createAdvertisement = function(req,res){
-    advertisement.create(req.body.advertisement,function(err,user){
+    advertisement.create(req.body.advertisement,function(err,advertisement){
      if(err){
      res.send(err);
      }
         else{
          console.log("the add was created successfully");
-            res.redirect('/');
+            res.json(user);
         }
     });
 }
@@ -21,7 +21,8 @@ advertisementController.createAdvertisement = function(req,res){
 advertisementController.deleteAdvertisement = function(req,res){
 advertisement.findOneAndRemove({'_id' : req.body.id},function(err){
 if(err){
- console.log(err);   
+ console.log(err); 
+    res.send(err);
 }
     else
     {
@@ -35,9 +36,12 @@ advertisementController.updateAdvertisement = function(req,res){
  var query ={'_id' : req.body.advertisement._id};
      user.findOneAndUpdate(query, req.body.advertisement, {upsert:false}, function(err, doc){
     if(err){
-     console.log("some error has occured");}
+     console.log("some error has occured");
+    res.send(err);
+    }
     else{
     console.log("data updated");
+    res.json(doc);
     }
 }); 
     
@@ -48,6 +52,9 @@ advertisementController.searchAdvertisement = function(req,res){
     var url_parts = url.parse(req.url, true);
     var options =url_parts.query;
     var query = {};
+    if('name' in options){
+    query =  { 'name' : options.name }
+    }
     
     if('saleType' in options){
         query = {
@@ -80,10 +87,11 @@ query = {
     'price' : {"$gte" : options.priceGreater}    
 }
 }
- advertisement.find(query,function(err,docs){
+ advertisement.find(query).limit(options.limit).exec(function(err,docs){
       if(err){
  console.log("error occured while searching");
      console.log(err);
+          res.send(err)
  }
      else{
       res.json(docs);    
