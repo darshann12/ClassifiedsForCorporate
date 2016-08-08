@@ -1,6 +1,47 @@
 <div ng-controller="advertisementCtrl">
-    <h2> advertisemtnts here </h2>
-    <tr ng-repeat="(key, value) in advertisements">
-       <td> {{key}} </td> <td> {{ value }} </td>
-    </tr>
-</div>
+    
+<div class="container">
+     <h3>Details of searched item.</h3>
+    <table class="table">
+    <tbody>
+        
+      <tr class="info">
+        <td> Product name : </td>
+        <td>{{advertisement.name}}</td>
+      </tr>
+        
+      <tr class="info">
+        <td> Sale Type : </td>
+        <td>{{advertisement.saleType}}</td>
+      </tr>
+        
+      <tr class="info">
+        <td> Category : </td>
+        <td>{{advertisement.category}}</td>
+      </tr>
+        
+      <tr class="info">
+        <td> Expiry Date : </td>
+        <td>{{advertisement.dateExp}}</td>
+      </tr>
+        
+      <tr class="info">
+        <td> Price : </td>
+        <td>{{advertisement.price}}</td>
+      </tr>
+        
+      <tr class="info">
+        <td> Description : </td>
+        <td>{{advertisement.description}}</td>
+      </tr>
+        
+      </tr>
+        <tr class="info">
+        <td> Negotiable : </td>
+        <td>{{advertisement.isNegotiable}}</td>
+      </tr> 
+    
+    </tbody>
+  </table>
+</div>    
+    
