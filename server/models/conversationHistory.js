@@ -5,7 +5,7 @@ sender : {type: String , required : true},
 reciever : {type : String, required : true},
 product : {type : String, required : true},    
 messageData :{ 
-    count : {type : number , required : true},
+    count : {type : Number , required : true},
     message : { type : String,required : true},
     date : { type: Date, default: Date.now }
              
