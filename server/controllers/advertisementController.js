@@ -87,6 +87,8 @@ query = {
     'price' : {"$gte" : options.priceGreater}    
 }
 }
+    console.log(options);
+    console.log(query);
  advertisement.find(query).limit(options.limit).exec(function(err,docs){
       if(err){
  console.log("error occured while searching");
