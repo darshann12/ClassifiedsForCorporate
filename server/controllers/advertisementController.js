@@ -46,39 +46,38 @@ advertisementController.updateAdvertisement = function(req,res){
 
 advertisementController.searchAdvertisement = function(req,res){
     var url_parts = url.parse(req.url, true);
-    var queryObject = url_parts.queryObject;
-    var options =queryObject.opetions;
+    var options =url_parts.query;
     var query = {};
     
     if('saleType' in options){
         query = {
-            saleType : option.saleType, 
+            'saleType': options.saleType, 
         }
     }
   if('category' in options){
         query = {
-            category : {"$in" : option.category}, 
+            'category' : {"$in" : options.category}, 
         }
     }
   if('dateCreated' in options){
         query = {
-            dateCreated : {"$gte" : option.dateCreated}, 
+            'dateCreated' : {"$gte" : options.dateCreated}, 
         }
     }
     
    if('dateExp' in options){
         query = {
-            dateExp : {"$gte" : option.dateExp}, 
+            'dateExp' : {"$gte" : options.dateExp}, 
         }
     }
   if('priceLess' in options){
 query = {
-    price : {"$lte" : option.price}    
+    'price' : {"$lte" : options.priceLess}    
 }
 }
  if('priceGreater' in options){
 query = {
-    price : {"$gte" : option.price}    
+    'price' : {"$gte" : options.priceGreater}    
 }
 }
  advertisement.find(query,function(err,docs){
