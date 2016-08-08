@@ -4,6 +4,6 @@ app.controller("advertisementSearchResultCtrl",['$scope','$stateParams','adverti
 
 $scope.searchQuery=$stateParams.searchQuery;
 $scope.advertisements=advertisementService.searchAdvertisement({name:$scope.searchQuery});
- alert($scope.advertisements);   
+   
     
 }])
