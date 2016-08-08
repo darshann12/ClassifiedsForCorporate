@@ -4,7 +4,7 @@ app.factory('advertisementService', ['$http', function($http) {
 
 
                 factory.createAdvertisement = function(advertisement) {
-                    $http.post("/advertisements",advertisement)
+                    $http.post("/advertisements",{advertisement:advertisement})
                         .success(function(data, status, headers, config) {
                         console.log("data returned from create ad"+data);
                             return data;

@@ -13,7 +13,7 @@ advertisementController.createAdvertisement = function(req,res){
      }
         else{
          console.log("the add was created successfully");
-            res.json(user);
+            res.json(advertisement);
         }
     });
 }
