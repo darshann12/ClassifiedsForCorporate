@@ -4,9 +4,13 @@ var conversationHistorySchema = {
 sender : {type: String , required : true}, 
 reciever : {type : String, required : true},
 product : {type : String, required : true},    
-message : { type : String,required : true},
-date : { type: Date, default: Date.now }
-}
+messageData :{ 
+    count : {type : number , required : true},
+    message : { type : String,required : true},
+    date : { type: Date, default: Date.now }
+             
+             }
+             }
 
 var conversationShemaObj = new dbObj.Schema(conversationHistorySchema,{collection:"conversationHistory",version : false});
 
