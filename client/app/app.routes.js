@@ -26,7 +26,19 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     templateUrl:"app/components/advertisement/createAdvertisement.html"
                     }
             }
-        })        
+        })  
+        
+        .state('advertisementSearchResult',{
+            url:"/advertisementSearchResult/",
+        params: {
+     searchQuery: null
+   },
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/advertisementSearchResultView.html"
+                    }
+            }
+        })
        
         
 }]);
