@@ -6,7 +6,7 @@ app.factory('advertisementService', ['$http', function($http) {
                 factory.createAdvertisement = function(advertisement) {
                     $http.post("/advertisements",advertisement)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot fetch advertisement";
@@ -30,7 +30,7 @@ app.factory('advertisementService', ['$http', function($http) {
                 factory.updateAdvertisement = function(advertisement) {
                     $http.put("/advertisements", advertisement)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot update advertisement";

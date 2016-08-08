@@ -6,7 +6,7 @@ app.factory('userService', ['$http', function($http) {
                 factory.createUser = function(user) {
                     $http.post("/users", user)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot fetch user";
@@ -30,7 +30,7 @@ app.factory('userService', ['$http', function($http) {
                 factory.updateUser = function(user) {
                     $http.put("/users", user)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot update user";
@@ -39,7 +39,7 @@ app.factory('userService', ['$http', function($http) {
                     factory.deleteUser = function(user) {
                         $http.delete("/users", user)
                             .success(function(data, status, headers, config) {
-                                return response.data;
+                                return data;
                             })
                             .error(function(data, status, header, config) {
                                 return "cannot fetch user";

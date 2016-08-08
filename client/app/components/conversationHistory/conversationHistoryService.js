@@ -6,7 +6,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                 factory.createConversationHistory = function(conversationHistory) {
                     $http.post("/conversationHistory",conversationHistory)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot fetch advertisement";
@@ -30,7 +30,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                 factory.updateConversationHistory = function(conversationHistory) {
                     $http.put("/conversationHistory", conversationHistory)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot update conversationHistory";
@@ -39,7 +39,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                     factory.deleteConversationHistory = function(conversationHistory) {
                         $http.delete("/conversationHistory", advertisement)
                             .success(function(data, status, headers, config) {
-                                return response.data;
+                                return data;
                             })
                             .error(function(data, status, header, config) {
                                 return "cannot delete conversationHistory";
