@@ -5,9 +5,10 @@ var advertisementSchema = {
     saleType:{required : true , type: String, 
           enum : ['rent','sell']},
     category:{ type: String, 
-          enum : ['mobiles','laptops','home applicance','other']},
+          enum : ['BOOKS','ELECTRONIC APPLIANCES','FURNITURE','HOUSE','MOBILES TABLETS','VEHICLES']},
     dateCreated: { type: Date, default: Date.now },
     dateExp:{type : Date, required : true},
+    description : {type:String, required : true},
         
     images:[{
             url:String
