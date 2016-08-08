@@ -19,7 +19,14 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
         })
-                
+             .state('createAdvertisement',{
+            url:"/createAdvertisement/",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/createAdvertisement.html"
+                    }
+            }
+        })        
        
         
 }]);

@@ -6,7 +6,7 @@ app.factory('transactionService', ['$http', function($http) {
                 factory.createTransaction = function(transaction) {
                     $http.post("/transactions",transaction)
                         .success(function(data, status, headers, config) {
-                            return response.data;
+                            return data;
                         })
                         .error(function(data, status, header, config) {
                             return "cannot fetch transaction";
@@ -31,7 +31,7 @@ app.factory('transactionService', ['$http', function($http) {
                     factory.deleteTransaction = function(transaction) {
                         $http.delete("/transactions", transaction)
                             .success(function(data, status, headers, config) {
-                                return response.data;
+                                return data;
                             })
                             .error(function(data, status, header, config) {
                                 return "cannot delete transaction";
