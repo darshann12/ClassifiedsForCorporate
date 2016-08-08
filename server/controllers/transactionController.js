@@ -57,18 +57,18 @@ transactionController.searchTransaction = function(req,res){
     var options = url_parts.query;
     var query = {};
     
-  if('datebefore' in options){
+  if('dateBefore' in options){
         query = {
-            date : {"$gte" : option.dateCreated}, 
+            'date' : {"$gte" : options.dateBefore}, 
         }
     }
     
    if('dateAfter' in options){
         query = {
-            date : {"$lte" : option.dateExp}, 
+            'date' : {"$lte" : options.dateExp}, 
             }
     }
-
+console.log(query);
  transaction.find(query,function(err,docs){
       if(err){
  console.log("error occured while searching");
