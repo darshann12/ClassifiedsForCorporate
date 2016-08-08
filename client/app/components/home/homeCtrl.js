@@ -19,15 +19,6 @@ var app=angular.module("cfc");
                     };
                 }]);*/
     app.controller("homeCtrl",['$scope',function($scope){
-        alert("ha");
-                        $scope.names=[
-                        {
-                            name:"shalvi",
-                            address:"abc"
-                        },
-                        {
-                            name:"hello",
-                            address:"xyz"
-                        }
-                    ];
+ 
+                   
                 }])
