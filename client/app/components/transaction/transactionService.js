@@ -4,7 +4,7 @@ app.factory('transactionService', ['$http', function($http) {
 
 
                 factory.createTransaction = function(transaction) {
-                    $http.post("/transactions",transaction)
+                    $http.post("/transactions",{transaction:transaction})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -29,7 +29,7 @@ app.factory('transactionService', ['$http', function($http) {
 
                     
                     factory.deleteTransaction = function(transaction) {
-                        $http.delete("/transactions", transaction)
+                        $http.delete("/transactions", {transaction:transaction})
                             .success(function(data, status, headers, config) {
                                 return data;
                             })

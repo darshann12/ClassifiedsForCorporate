@@ -4,7 +4,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
 
 
                 factory.createConversationHistory = function(conversationHistory) {
-                    $http.post("/conversationHistory",conversationHistory)
+                    $http.post("/conversationHistory",{conversationHistory:conversationHistory})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -28,7 +28,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
 
 
                 factory.updateConversationHistory = function(conversationHistory) {
-                    $http.put("/conversationHistory", conversationHistory)
+                    $http.put("/conversationHistory", {conversationHistory:conversationHistory})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -37,7 +37,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                         });
                 }
                     factory.deleteConversationHistory = function(conversationHistory) {
-                        $http.delete("/conversationHistory", advertisement)
+                        $http.delete("/conversationHistory",{conversationHistory:conversationHistory})
                             .success(function(data, status, headers, config) {
                                 return data;
                             })

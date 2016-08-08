@@ -29,7 +29,7 @@ app.factory('advertisementService', ['$http', function($http) {
 
 
                 factory.updateAdvertisement = function(advertisement) {
-                    $http.put("/advertisements", advertisement)
+                    $http.put("/advertisements", {advertisement:advertisement})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -38,7 +38,7 @@ app.factory('advertisementService', ['$http', function($http) {
                         });
                 }
                     factory.deleteAdvertisement = function(advertisement) {
-                        $http.delete("/advertisements", advertisement)
+                        $http.delete("/advertisements", {advertisement:advertisement})
                             .success(function(data, status, headers, config) {
                                 return response.data;
                             })
