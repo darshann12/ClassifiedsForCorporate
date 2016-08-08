@@ -15,7 +15,7 @@ userController.createUser=function(req, res){
                 res.send(err);
             else{
                 console.log("user :"+user.firstName+" is saved");
-                res.redirect('/');
+                res.json(user);
           
             }
         });
@@ -109,7 +109,7 @@ userController.login=function(req, res,next){
            {
                sessionData = req.session;
                sessionData.username = username;
-             
+             res.send(req.session);
            }
   }
     

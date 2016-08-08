@@ -13,7 +13,7 @@ advertisementController.createAdvertisement = function(req,res){
      }
         else{
          console.log("the add was created successfully");
-            res.json(user);
+            res.json(advertisement);
         }
     });
 }
@@ -87,6 +87,8 @@ query = {
     'price' : {"$gte" : options.priceGreater}    
 }
 }
+    console.log(options);
+    console.log(query);
  advertisement.find(query).limit(options.limit).exec(function(err,docs){
       if(err){
  console.log("error occured while searching");
