@@ -1,4 +1,4 @@
-var app.angular.module('cfc');
+var app=angular.module('cfc');
 app.factory('advertisementService', ['$http', function($http) {
                 var factory = {};
 
@@ -45,7 +45,20 @@ app.factory('advertisementService', ['$http', function($http) {
                                 return "cannot fetch user";
                             });
 
+                    }
+                    
+                        factory.searchAdvertisement = function(options) {
+                    $http.get("/advertisements/search", {
+                            params: {
+                                options: options
+                            }
+                        })
+                        .then(function(response) {
+                            return response.data;
+                        });
+
+                }
 
                         return factory;
-                    }
+                    
 }]);

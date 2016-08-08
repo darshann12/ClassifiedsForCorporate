@@ -15,6 +15,7 @@ router.get('/search',transactionController.searchTransaction );
 //DELETE is ofcourse delete :-)u
 router.delete('/', transactionController.deleteTransaction);
 
+router.get('/search',transactionController.searchTransaction );
 
 
 module.exports = router;

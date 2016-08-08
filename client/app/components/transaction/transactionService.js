@@ -36,7 +36,7 @@ app.factory('transactionService', ['$http', function($http) {
                             .error(function(data, status, header, config) {
                                 return "cannot delete transaction";
                             });
-
+                    }
 
                         return factory;
-                    }}]);
+                    }]);

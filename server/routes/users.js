@@ -16,6 +16,8 @@ router.put('/', userController.updateUser);
 //DELETE is ofcourse delete :-)u
 router.delete('/', userController.deleteUser);
 
+//router.get('/search',userController.searchUser );
+
 router.post('/login',userController.login);
 
 router.post('/logout',userController.logout);
