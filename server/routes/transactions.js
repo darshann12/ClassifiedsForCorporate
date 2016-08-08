@@ -10,7 +10,7 @@ router.post('/',transactionController.createTransaction);
 //GET is read
 router.get('/',transactionController.getTransaction );
 
-router.search('/search',transactionController.searchTransaction );
+router.get('/search',transactionController.searchTransaction );
 
 //DELETE is ofcourse delete :-)u
 router.delete('/', transactionController.deleteTransaction);
