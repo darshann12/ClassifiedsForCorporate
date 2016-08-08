@@ -46,6 +46,29 @@ app.factory('userService', ['$http', function($http) {
                             });
 
                     }
+                    
+                    factory.loginUser = function(user) {
+                        $http.post("/users/login", user)
+                            .success(function(data, status, headers, config) {
+                                return data;
+                            })
+                            .error(function(data, status, header, config) {
+                                return "Wrong username or password";
+                            });
+
+                    }
+                    
+                       factory.logoutUser = function(user) {
+                        $http.post("/users/logout", user)
+                            .success(function(data, status, headers, config) {
+                                return data;
+                            })
+                            .error(function(data, status, header, config) {
+                                return "unable to logout";
+                            });
+
+                    }
+                    
                         return factory;
                     
                     
