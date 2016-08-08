@@ -39,6 +39,21 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
         })
-       
+    .state('login',{
+            url:"/login/",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/user/loginView.html"
+                    }
+            }
+        }) 
+       .state('registerUser',{
+            url:"/signup/",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/user/registerUserView.html"
+                    }
+            }
+        })   
         
 }]);

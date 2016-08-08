@@ -1,7 +1,7 @@
 <div ng-controller="registerUserCtrl" >
-    <form name="user" ng-submit="submit()">
+    <form name="form" ng-submit="createUser()">
     <div>Enter first name 
-    <input type="text" id="fname" name="fname" ng-model="user.firstName"  ng-maxlength="12" required> <br/>  
+    <input type="text" id="firstName" name="fname" ng-model="user.firstName"  ng-maxlength="12" required> <br/>  
     </div>
         <span ng-show="form.fname.$error.required"> 
         first name is required
@@ -11,7 +11,7 @@
         </span> 
                 <br>
         <div>Enter last name 
-        <input type="text" id="lname" name="lname" ng-model="user.lastName"  ng-maxlength="12"          required> <br/>  
+        <input type="text" id="lastName" name="lname" ng-model="user.lastName"  ng-maxlength="12"          required> <br/>  
     </div>
         <span ng-show="form.lname.$error.required"> 
         last name is required
@@ -21,7 +21,7 @@
         </span>        
         <br>
         <div>Enter user name 
-            <input type="text" id="uname" name="uname" ng-model="user.userName"  ng-maxlength="12" required> <br/>  
+            <input type="text" id="uname" name="username" ng-model="user.username"  ng-maxlength="12" required> <br/>  
         </div>
         
         <span ng-show="form.uname.$error.required"> 
@@ -46,15 +46,15 @@
         </span><br>
         
         <div>Enter mobile number
-<input type="number" id="mobNum" name="mobNum" ng-model="user.mobNum" ng-minlength="10"   ng-maxlength="10" required> <br/>  
+<input type="number" id="mobNum" name="mobile" ng-model="user.mobile" ng-minlength="10"   ng-maxlength="10" required> <br/>  
     </div>
-        <span ng-show="form.mobNum.$error.required||form.mobNum.$error.number"> 
+        <span ng-show="form.mobile.$error.required||form.mobNum.$error.number"> 
         valid mobile number is required
         </span> 
-        <span ng-show="form.mobNum.$error.maxlength"> 
+        <span ng-show="form.mobile.$error.maxlength"> 
         10 numbers is the maximum limit
         </span>
-        <span ng-show="form.mobNum.$error.minlength"> 
+        <span ng-show="form.mobile.$error.minlength"> 
         10 numbers is the minimum limit
         </span><br>
        

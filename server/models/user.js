@@ -4,7 +4,7 @@ var userSchema = {
 	lastName: {type:String, required : true},
     username: {type:String, required : true,unique : true},
     password: {type:String, required : true},
-	telephone: {type:Number,required : true,unique : true},
+	mobile: {type:Number,required : true,unique : true},
 	address: {type:String, required : true},
 	email: {type:String, required : true,unique : true},
     ads: [{ type: Number , unique : true }],

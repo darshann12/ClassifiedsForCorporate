@@ -3,7 +3,11 @@ app.controller("advertisementSearchResultCtrl",['$scope','$stateParams','adverti
 
 
 $scope.searchQuery=$stateParams.searchQuery;
-$scope.advertisements=advertisementService.searchAdvertisement({name:$scope.searchQuery});
+advertisementService.searchAdvertisement({name:$scope.searchQuery}).then(function(response){
+$scope.advertisements=response.data;
+  
+    
+})
    
     
 }])

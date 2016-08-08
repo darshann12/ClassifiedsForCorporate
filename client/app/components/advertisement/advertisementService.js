@@ -50,12 +50,11 @@ app.factory('advertisementService', ['$http', function($http) {
                     
                         factory.searchAdvertisement = function(options) {
                  return    $http.get("/advertisements/search", {
-                            params: {
-                                options: options
-                            }
+                            params: options
                         })
                         .then(function(response) {
-                            return response.data;
+                    
+                            return response;
                         });
 
                 }
