@@ -6,5 +6,6 @@ $scope.advertisement.saleTypeOptions=["RENT","SELL"];
 $scope.advertisement.categoryOptions=["RENT","SELL"];
 $scope.createAdvertisement=function(){
     $scope.status=advertisementService.createAdvertisement($scope.advertisement);
+    alert(status);
 }
 }]);
