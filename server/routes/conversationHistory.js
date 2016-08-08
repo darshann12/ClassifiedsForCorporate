@@ -8,7 +8,7 @@ var conversationHistoryController=require('./../controllers/conversationHistoryC
 router.post('/',conversationHistoryController.updateConversationHistory);
 
 //GET is read
-router.get('/',conversationHistoryController.getConversationHistory );
+//router.get('/',conversationHistoryController.getConversationHistory );
 
 //PUT is update
 router.put('/', conversationHistoryController.updateConversationHistory);
