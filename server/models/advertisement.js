@@ -3,7 +3,7 @@ var dbObj = require('./../config/mongoconnection'); //mongoose object required t
 var advertisementSchema = {
     name:{type:String, required : true},
     saleType:{required : true , type: String, 
-          enum : ['rent','sell']},
+          enum : ['RENT','SELL']},
     category:{ type: String, 
           enum : ['BOOKS','ELECTRONIC APPLIANCES','FURNITURE','HOUSE','MOBILES TABLETS','VEHICLES']},
     dateCreated: { type: Date, default: Date.now },
