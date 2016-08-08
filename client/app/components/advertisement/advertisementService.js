@@ -46,6 +46,19 @@ app.factory('advertisementService', ['$http', function($http) {
                             });
 
                     }
+                    
+                        factory.searchAdvertisement = function(options) {
+                    $http.get("/advertisements/search", {
+                            params: {
+                                options: options
+                            }
+                        })
+                        .then(function(response) {
+                            return response.data;
+                        });
+
+                }
+
                         return factory;
                     
 }]);
