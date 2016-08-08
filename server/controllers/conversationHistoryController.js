@@ -43,22 +43,49 @@ if(err){
 }
 
 conversationHistoryController.searchConversationHistory = function(req,res){
-    var options = req.body.options;
+       var url_parts = url.parse(req.url, true);
+      var options = url_parts.options;
     var query = {};
     
-    if('dataStart' in options){
+    if('reciever' in options){
         query = {
-            'message.date' : {"$gte" : option.dateStart}, 
+            'reciever' : options.reciver 
+        } 
+        
+    }
+    
+    if('product' in options){
+        query = {
+            'product' : options.product 
+        } 
+        
+    }
+    
+    if('keywords' in options){
+        query = {
+            'message' : {"$regex" : '/'+options.keyboards+'/'}
+        } 
+    }
+    
+    if('dateStart' in options){
+        query = {
+            'message.date' : {"$gte" : options.dateStart} 
         }
     }
     
    if('dateEnd' in options){
         query = {
-            'message.date' : {"$lte" : option.dateExp}, 
+            'message.date' : {"$lte" : options.dateExp} 
         }
     }
     
+    
+    
+    
+    
+    
      conversationHistory.find(query,function(err,docs){
+         
       if(err){
  console.log("error occured while searching");
      console.log(err);
@@ -69,6 +96,7 @@ conversationHistoryController.searchConversationHistory = function(req,res){
      
  } ) 
 }
+
 
 module.exports = conversationHistoryController;
 

@@ -73,6 +73,25 @@ userController.updateUser = function(req,res){
     
 }
  
+userController.searchUser = function(req,res){
+     var url_parts = url.parse(req.url, true);
+      var user = url_parts.searchUser;
+    var query = {};
+    query = {$text : {
+    $search : user,
+    $caseSensitive : false     
+    }}
+        user.find(query,function(err,docs){
+ if(err){
+ console.log("error occured while get");
+     console.log(err);
+ }
+     else{
+      res.json(docs);    
+     }
+ })
+    
+}
 
 
 userController.login=function(req, res,next){

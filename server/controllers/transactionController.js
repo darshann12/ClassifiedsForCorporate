@@ -53,7 +53,8 @@ var query = url_parts.query;
 }
 
 transactionController.searchTransaction = function(req,res){
-    var options = req.body.options;
+    var url_parts = url.parse(req.url, true);
+    var options = url_parts.query;
     var query = {};
     
   if('datebefore' in options){

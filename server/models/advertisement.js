@@ -4,7 +4,7 @@ var advertisementSchema = {
     name:{type:String, required : true},
     saleType:{required : true , type: String, 
           enum : ['rent','sell']},
-    saleType:{ type: String, 
+    category:{ type: String, 
           enum : ['mobiles','laptops','home applicance','other']},
     dateCreated: { type: Date, default: Date.now },
     dateExp:{type : Date, required : true},
@@ -13,8 +13,6 @@ var advertisementSchema = {
             url:String
             }
             ],
-
-    isOpenForSale:{type:Boolean,required : true },
     creator : { type: String },
     price : {type:Number ,required: true},
     isNegotiable :{type:Boolean,required : true },
@@ -22,7 +20,7 @@ var advertisementSchema = {
                  date:{ type: Date, default: Date.now },
                  user : String}],
 
-    isOpenForSale:Boolean
+   
 
     
    

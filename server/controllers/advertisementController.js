@@ -1,6 +1,7 @@
 var advertisement = require('./../models/advertisement');
 var db = require('./../config/mongoconnection');
 var path = require('path');
+var url = require('url');
 
 
 var advertisementController ={};
@@ -44,7 +45,9 @@ advertisementController.updateAdvertisement = function(req,res){
 }
 
 advertisementController.searchAdvertisement = function(req,res){
-    var options = req.body.options;
+    var url_parts = url.parse(req.url, true);
+    var queryObject = url_parts.queryObject;
+    var options =queryObject.opetions;
     var query = {};
     
     if('saleType' in options){
@@ -91,7 +94,11 @@ query = {
 }
 
 advertisementController.getAdvertisement = function(req,res){
-     advertisement.find({'_id': req.body._id},function(err,docs){
+    var url_parts = url.parse(req.url, true);
+var query = url_parts.query;
+        if (query._id.match(/^[0-9a-fA-F]{24}$/)) {
+
+     advertisement.find({'_id': query._id},function(err,docs){
  if(err){
  console.log("error occured while get");
      console.log(err);
@@ -100,7 +107,7 @@ advertisementController.getAdvertisement = function(req,res){
       res.json(docs);    
      }
  })
-    
+        }
 }
 
 module.exports = advertisementController;
