@@ -45,13 +45,15 @@
     <script src="/app/components/advertisement/advertisementCtrl.js"></script>
     <script src="/app/components/advertisement/advertisementService.js"></script>
     <script src="/app/components/advertisement/createAdvertisementCtrl.js"></script>
+    <script src="/app/components/advertisement/advertisementSearchBarCtrl.js"></script>
+    <script src="/app/components/advertisement/advertisementSearchResultCtrl.js"></script>
  
 </head>
 
 <body id="page-top" ng-app="cfc">
 
 
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="advertisementSearchBarCtrl">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -65,14 +67,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     
+                    
                     <li>
                         <br>
-                        <input type="text" class="form-control" id="usr">
+                        <input type="text" ng-model="searchQuery" class="form-control" id="usr">
                     </li>
                     <li>
                         <br>
-                        <button type="button" class="btn btn-primary">SEARCH</button>
+                        <button type="button" class="btn btn-primary" ng-click="searchAdvertisement()" >SEARCH</button>
                     </li>
+           
                     <li>
                         <br>
                         <a class="page-scroll" ui-sref="createAdvertisement">POST ADVERTISEMENT</a>
