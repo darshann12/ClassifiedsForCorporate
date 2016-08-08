@@ -4,7 +4,7 @@ app.factory('transactionService', ['$http', function($http) {
 
 
                 factory.createTransaction = function(transaction) {
-                    $http.post("/transactions",{transaction:transaction})
+                   return  $http.post("/transactions",{transaction:transaction})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -15,7 +15,7 @@ app.factory('transactionService', ['$http', function($http) {
                 }
 
                 factory.getTransaction = function(transactionId) {
-                    $http.get("/transactions", {
+                  return   $http.get("/transactions", {
                             params: {
                                 transaction: transactionId
                             }
@@ -29,7 +29,7 @@ app.factory('transactionService', ['$http', function($http) {
 
                     
                     factory.deleteTransaction = function(transaction) {
-                        $http.delete("/transactions", {transaction:transaction})
+                     return    $http.delete("/transactions", {transaction:transaction})
                             .success(function(data, status, headers, config) {
                                 return data;
                             })

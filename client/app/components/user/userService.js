@@ -4,7 +4,7 @@ app.factory('userService', ['$http', function($http) {
 
 
                 factory.createUser = function(user) {
-                    $http.post("/users", {user:user})
+                 return    $http.post("/users", {user:user})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -15,7 +15,7 @@ app.factory('userService', ['$http', function($http) {
                 }
 
                 factory.getUser = function(userId) {
-                    $http.get("/users", {
+                   return  $http.get("/users", {
                             params: {
                                 username: userId
                             }
@@ -28,7 +28,7 @@ app.factory('userService', ['$http', function($http) {
 
 
                 factory.updateUser = function(user) {
-                    $http.put("/users", {user:user})
+                  return   $http.put("/users", {user:user})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -37,7 +37,7 @@ app.factory('userService', ['$http', function($http) {
                         });
                 }
                     factory.deleteUser = function(user) {
-                        $http.delete("/users", {user:user})
+                   return      $http.delete("/users", {user:user})
                             .success(function(data, status, headers, config) {
                                 return data;
                             })
