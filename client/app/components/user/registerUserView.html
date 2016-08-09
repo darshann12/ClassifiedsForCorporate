@@ -1,78 +1,66 @@
-<div ng-controller="registerUserCtrl" >
-    <form name="form" ng-submit="createUser()">
-    <div>Enter first name 
-    <input type="text" id="firstName" name="fname" ng-model="user.firstName"  ng-maxlength="12" required> <br/>  
-    </div>
-        <span ng-show="form.fname.$error.required"> 
-        first name is required
-        </span> 
-        <span ng-show="form.fname.$error.maxlength"> 
-            12 characters is maximum limit
-        </span> 
-                <br>
-        <div>Enter last name 
-        <input type="text" id="lastName" name="lname" ng-model="user.lastName"  ng-maxlength="12"          required> <br/>  
-    </div>
-        <span ng-show="form.lname.$error.required"> 
-        last name is required
-        </span> 
-        <span ng-show="form.lname.$error.maxlength"> 
-        12 characters is maximum limit
-        </span>        
-        <br>
-        <div>Enter user name 
-            <input type="text" id="uname" name="username" ng-model="user.username"  ng-maxlength="12" required> <br/>  
+ <div ng-controller="registerUserCtrl" >
+     <div class="col-md-4 col-md-offset-4">
+    <form class=" col-xs-20 " name="form" ng-click="createUser()">
+        <div class=" panel panel-primary" style=" border-color:black" >
+        <div class="panel-heading" style=" background-color: #f05f40;border-color:black">REGISTER</div>
+            <div class="panel-body">
+         <div class="form-group">
+         <label class="control-label" for="firstName">Enter first name </label>        
+        <input type="text" id="firstName" name="firstName" ng-model="user.firstName"  ng-maxlength="12" class="form-control" required>
+            
         </div>
-        
-        <span ng-show="form.uname.$error.required"> 
-        user name is required
-        </span> 
-        <span ng-show="form.uname.$error.maxlength"> 
+        <span ng-show="form.firstName.$error.maxlength"> 
+            12 characters is maximum limit
+        </span>    
+             
+          <div class="form-group">
+              <label class="control-label" for="lastName">Enter last name</label>
+               
+              <input type="text" id="lastName" name="lastName" ng-model="user.lastName"  ng-maxlength="12" class="form-control" required> 
+        </div>
+        <span ng-show="form.lastName.$error.maxlength"> 
+        12 characters is maximum limit
+        </span>              
+        <div class="form-group">
+              <label class="control-label" for="username">Enter username</label>
+              <input type="text" id="username" name="username" ng-model="user.username"  ng-maxlength="12" class="form-control" required>
+        </div>
+        <span ng-show="form.username.$error.maxlength"> 
         12 characters is maximum limit
         </span>
-        <br>
-    
-        <div>Enter password 
-            <input type="password" id="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="12" required> <br/>  
-    </div>
-        <span ng-show="form.password.$error.required"> 
-        password is required
-        </span> 
+        <div class="form-group">
+              <label class="control-label" for="password">Enter password</label>
+            <input type="password" id="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="12" class="form-control" required>  
+        </div>
         <span ng-show="form.password.$error.maxlength"> 
         12 characters is maximum limit
         </span>
         <span ng-show="form.password.$error.minlength"> 
         6 characters is minimum limit
-        </span><br>
-        
-        <div>Enter mobile number
-<input type="number" id="mobNum" name="mobile" ng-model="user.mobile" ng-minlength="10"   ng-maxlength="10" required> <br/>  
-    </div>
-        <span ng-show="form.mobile.$error.required||form.mobNum.$error.number"> 
-        valid mobile number is required
-        </span> 
+        </span>
+        <div class="form-group">
+         <label class="control-label" for="mobile">Enter mobile   number</label>
+<input type="number" id="mobile" name="mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10" class="form-control" required> 
+        </div>
         <span ng-show="form.mobile.$error.maxlength"> 
         10 numbers is the maximum limit
         </span>
         <span ng-show="form.mobile.$error.minlength"> 
         10 numbers is the minimum limit
-        </span><br>
+        </span>
        
-        <div>Enter address
-<input type="text" id="address" name="address" ng-model="user.address" required> <br/> 
-    </div>
-        <span ng-show="form.address.$error.required"> 
-        address is required
-        </span> 
-        <br>
-        
-         <div>Enter email
-<input type="email" id="email" name="email" ng-model="user.email" required> <br/> 
-    </div>
-        <span ng-show="form.address.$error.required||form.address.$error.email"> 
-        valid email id is required
-        </span> 
-        <br>
-        <input type="submit" id="submit" value="Register"/>
-    </form>
-</div>
+        <div class="form-group">
+              <label class="control-label" for="password">Enter address </label>
+<input type="text" id="address" name="address" ng-model="user.address" class="form-control" required> 
+        </div>
+         <div class="form-group">
+              <label class="control-label" for="password">Enter email id </label> 
+<input type="email" id="email" name="email" ng-model="user.email" class="form-control" required>
+        </div>
+        <br><div class="controls">
+                <button class="btn btn-success" >Register</button>
+           </div>
+        </div>
+      </form>
+     </div>
+   </div>
