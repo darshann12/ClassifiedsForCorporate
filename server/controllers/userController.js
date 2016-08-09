@@ -121,15 +121,15 @@ userController.login=function(req, res,next){
                  currentSession=req.session;
               currentSession._id=record._id;
               currentSession.username = record.username;
-<<<<<<< HEAD
+
              console.log("login successfully");
                res.send(req.username);
-=======
+
              console.log("logged in successfully");
                res.send(req.session);
                }
              
->>>>>>> 266403bdf16d023cf43d67ad925dca83b632f5b9
+
            }
   
        else{

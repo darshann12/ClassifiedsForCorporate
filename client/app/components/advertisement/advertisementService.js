@@ -58,6 +58,19 @@ app.factory('advertisementService', ['$http', function($http) {
                         });
 
                 }
+                        
+                        
+                               factory.getMyAdvertisements = function() {
+                   return  $http.get("/advertisements/myadvertisements?username=dark").
+                   success(function(data, status, headers, config) {
+                        
+                          
+                        })
+                        .error(function(data, status, header, config) {
+                            alert("failed to get my advertisement ");
+                        });
+                     
+                }
 
                         return factory;
                     

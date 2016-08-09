@@ -48,7 +48,7 @@ app.factory('userService', ['$http', function($http) {
                     }
                     
                     factory.loginUser = function(user) {
-                        $http.post("/users/login", {user:user})
+                        $http.post("/users/login", {loginObject:user})
                             .success(function(data, status, headers, config) {
                                 return data;
                             })

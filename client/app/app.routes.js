@@ -27,7 +27,17 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
         })  
-        
+         .state('editAdvertisement',{
+            url:"/createAdvertisement/",
+        params: {
+     advertisement: null
+        },
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/editAdvertisementView.html"
+                    }
+            }
+        }) 
         .state('advertisementSearchResult',{
             url:"/advertisementSearchResult/:category?book",
         params: {
@@ -36,6 +46,14 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
             views:  {
                     "contentView":{
                     templateUrl:"app/components/advertisement/advertisementSearchResultView.html"
+                    }
+            }
+        })
+            .state('myAdvertisements',{
+            url:"/myadvertisements/",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/myAdvertisementsView.html"
                     }
             }
         })
