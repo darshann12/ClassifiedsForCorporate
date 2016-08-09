@@ -18,4 +18,6 @@ router.delete('/', advertisementController.deleteAdvertisement);
 
 router.get('/search',advertisementController.searchAdvertisement );
 
+router.get('/myadvertisements',advertisementController.getUserAdvertisements);
+
 module.exports = router;

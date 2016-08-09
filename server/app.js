@@ -4,9 +4,10 @@ var routes = require('./routes');
 var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session')
-
+var color=require('colors');
 
 var currentSession;
+
 app.use(express.static(path.join(__dirname, './../client')));
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -19,7 +20,10 @@ app.use(session({
   activeDuration: 5 * 60 * 1000
 }))
 
-
+app.use('/', function (req, res, next) {
+  console.log(color.green('session:', Object.keys(req.session)));
+  next();
+});
 
 // parse application/json 
 app.use(bodyParser.json())

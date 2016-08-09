@@ -111,14 +111,25 @@ userController.login=function(req, res,next){
        
            
           
-           if(!err)
-           {
-               console.log(record);
-               currentSession=req.session;
+           if(!err) {
+               console.log("fetched record:"+record);
+               if(!record){
+                   console.log("login failed");
+                   res.send("login failed");
+               }else{
+               
+                 currentSession=req.session;
               currentSession._id=record._id;
               currentSession.username = record.username;
+<<<<<<< HEAD
              console.log("login successfully");
                res.send(req.username);
+=======
+             console.log("logged in successfully");
+               res.send(req.session);
+               }
+             
+>>>>>>> 266403bdf16d023cf43d67ad925dca83b632f5b9
            }
   
        else{
