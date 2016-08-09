@@ -9,6 +9,8 @@ var session = require('express-session')
 var currentSession;
 app.use(express.static(path.join(__dirname, './../client')));
 app.use(bodyParser.urlencoded({ extended: false }))
+
+
 app.use(session({
     resave : false,
   secret: 'cfc secret',
@@ -22,10 +24,6 @@ app.use(session({
 // parse application/json 
 app.use(bodyParser.json())
 app.use('/', routes);
-
-
-
-
 
 
 app.listen(3000, function() {
