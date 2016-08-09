@@ -123,11 +123,11 @@ var query = url_parts.query;
 
 
 advertisementController.getUserAdvertisements = function(req,res){
-           var url_parts = url.parse(req.url, true);
-             var username = url_parts.query.username;
+          
+             var username = currentSession.username;
       advertisement.find({'creator': username},function(err,docs){
  if(err){
- console.log("error occured while get");
+ console.log("error occured while getting myAdvertisements");
      console.log(err);
  }
      else{

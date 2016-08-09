@@ -121,12 +121,8 @@ userController.login=function(req, res,next){
                  currentSession=req.session;
               currentSession._id=record._id;
               currentSession.username = record.username;
-
-             console.log("login successfully");
-               res.send(req.username);
-
              console.log("logged in successfully");
-               res.send(req.session);
+               res.send(req.session.username);
                }
              
 
