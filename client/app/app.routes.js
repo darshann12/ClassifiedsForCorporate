@@ -28,7 +28,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
             }
         })  
          .state('editAdvertisement',{
-            url:"/createAdvertisement/",
+            url:"/editAdvertisement/",
         params: {
      advertisement: null
         },
