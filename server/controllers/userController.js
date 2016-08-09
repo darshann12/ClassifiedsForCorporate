@@ -118,7 +118,7 @@ userController.login=function(req, res,next){
               currentSession._id=record._id;
               currentSession.username = record.username;
              console.log("login successfully");
-               res.send(req.session);
+               res.send(req.username);
            }
   
        else{
@@ -133,7 +133,7 @@ userController.login=function(req, res,next){
 }
 
 userController.logout = function(req,res,next){
-  req.session.destroy(function(err){
+  currentSession.destroy(function(err){
   if(err){
   console.log(err);}
       else{
