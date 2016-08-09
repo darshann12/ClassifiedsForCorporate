@@ -6,15 +6,24 @@ var path = require('path');
 var session = require('express-session')
 
 
-
+var currentSession;
 app.use(express.static(path.join(__dirname, './../client')));
 app.use(bodyParser.urlencoded({ extended: false }))
- 
+app.use(session({
+    resave : false,
+  secret: 'cfc secret',
+  cookie: { secure: true },
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000
+}))
+
+
+
 // parse application/json 
 app.use(bodyParser.json())
 app.use('/', routes);
 
-app.use(session({ secret: 'cfc secret', cookie: { maxAge: 60000 }}))
+
 
 
 

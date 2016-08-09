@@ -61,7 +61,7 @@ userController.deleteUser = function(req,res){
 userController.updateUser = function(req,res){
     console.log(req.session);
     
-    if(req.session.username){
+    if(currentSession.username){
     var query ={'username' : req.body.user.username};
   console.log(req.body.user.mobile);
     user.findOneAndUpdate(query, req.body.user, {upsert:false}, function(err, doc){
@@ -114,8 +114,9 @@ userController.login=function(req, res,next){
            if(!err)
            {
                console.log(record);
-              req.session._id=record._id;
-               req.session.username = record.username;
+               currentSession=req.session;
+              currentSession._id=record._id;
+              currentSession.username = record.username;
              console.log("login successfully");
                res.send(req.session);
            }
