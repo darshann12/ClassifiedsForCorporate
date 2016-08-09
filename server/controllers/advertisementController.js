@@ -7,7 +7,9 @@ var url = require('url');
 var advertisementController ={};
 
 advertisementController.createAdvertisement = function(req,res){
-    advertisement.create(req.body.advertisement,function(err,advertisement){
+    var advertisementObj=req.body.advertisement;
+    advertisementObj.creator = currentSession.username;
+    advertisement.create(advertisementObj,function(err,advertisement){
      if(err){
      res.send(err);
      }
