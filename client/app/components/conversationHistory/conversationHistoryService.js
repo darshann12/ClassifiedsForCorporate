@@ -4,7 +4,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
 
 
                 factory.createConversationHistory = function(conversationHistory) {
-                    $http.post("/conversationHistory",{conversationHistory:conversationHistory})
+                   return  $http.post("/conversationHistory",{conversationHistory:conversationHistory})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -15,7 +15,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                 }
 
                 factory.getConversationHistory = function(conversationHistoryId) {
-                    $http.get("/advertisements", {
+                  return   $http.get("/advertisements", {
                             params: {
                                 advertisement: conversationHistoryId
                             }
@@ -28,7 +28,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
 
 
                 factory.updateConversationHistory = function(conversationHistory) {
-                    $http.put("/conversationHistory", {conversationHistory:conversationHistory})
+                 return    $http.put("/conversationHistory", {conversationHistory:conversationHistory})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -37,7 +37,7 @@ app.factory('conversationHistoryService', ['$http', function($http) {
                         });
                 }
                     factory.deleteConversationHistory = function(conversationHistory) {
-                        $http.delete("/conversationHistory",{conversationHistory:conversationHistory})
+                  return       $http.delete("/conversationHistory",{conversationHistory:conversationHistory})
                             .success(function(data, status, headers, config) {
                                 return data;
                             })

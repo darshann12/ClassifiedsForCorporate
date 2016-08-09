@@ -7,7 +7,7 @@ var url = require('url');
 var userController={};
 
 userController.createUser=function(req, res){
-       
+       console.log(req.body.user);
     user.create(
          req.body.user
             , function(err, user) {
@@ -60,7 +60,7 @@ userController.deleteUser = function(req,res){
 
 userController.updateUser = function(req,res){
     var query ={'username' : req.body.user.username};
-  console.log(req.body.user.telephone);
+  console.log(req.body.user.mobile);
     user.findOneAndUpdate(query, req.body.user, {upsert:false}, function(err, doc){
     if(err){
      console.log("some error has occured");}

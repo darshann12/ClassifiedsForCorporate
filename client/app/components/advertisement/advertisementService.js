@@ -4,19 +4,19 @@ app.factory('advertisementService', ['$http', function($http) {
 
 
                 factory.createAdvertisement = function(advertisement) {
-                    $http.post("/advertisements",{advertisement:advertisement})
-                        .success(function(data, status, headers, config) {
-                        console.log("data returned from create ad"+data);
-                            return data;
+                   return  $http.post("/advertisements",{advertisement:advertisement}).
+                   success(function(data, status, headers, config) {
+                        
+                          
                         })
                         .error(function(data, status, header, config) {
-                            return "cannot fetch advertisement";
+                            alert("failed to post advertisement ");
                         });
-
+                     
                 }
 
                 factory.getAdvertisement = function(advertisementId) {
-                    $http.get("/advertisements", {
+                    return  $http.get("/advertisements", {
                             params: {
                                 advertisement: advertisementId
                             }
@@ -29,7 +29,7 @@ app.factory('advertisementService', ['$http', function($http) {
 
 
                 factory.updateAdvertisement = function(advertisement) {
-                    $http.put("/advertisements", {advertisement:advertisement})
+                   return  $http.put("/advertisements", {advertisement:advertisement})
                         .success(function(data, status, headers, config) {
                             return data;
                         })
@@ -49,13 +49,12 @@ app.factory('advertisementService', ['$http', function($http) {
                     }
                     
                         factory.searchAdvertisement = function(options) {
-                    $http.get("/advertisements/search", {
-                            params: {
-                                options: options
-                            }
+                 return    $http.get("/advertisements/search", {
+                            params: options
                         })
                         .then(function(response) {
-                            return response.data;
+                    
+                            return response;
                         });
 
                 }
