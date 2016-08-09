@@ -29,7 +29,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         })  
         
         .state('advertisementSearchResult',{
-            url:"/advertisementSearchResult/",
+            url:"/advertisementSearchResult/:category?book",
         params: {
      searchQuery: null
    },
