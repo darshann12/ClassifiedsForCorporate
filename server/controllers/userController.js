@@ -59,6 +59,9 @@ userController.deleteUser = function(req,res){
 
 
 userController.updateUser = function(req,res){
+    console.log(req.session);
+    
+    if(currentSession.username){
     var query ={'username' : req.body.user.username};
   console.log(req.body.user.mobile);
     user.findOneAndUpdate(query, req.body.user, {upsert:false}, function(err, doc){
@@ -70,7 +73,11 @@ userController.updateUser = function(req,res){
     console.log("data updated");
     }
 });
-    
+    }
+    else{
+        
+     res.send("session does not exist");   
+    }
 }
  
 userController.searchUser = function(req,res){
@@ -95,23 +102,31 @@ userController.searchUser = function(req,res){
 
 
 userController.login=function(req, res,next){
-    var username = req.body.username;
-    var password = req.body.password;
-    console.log(username);
-     console.log(password);
-     console.log("hello login");
-   user.findOne({"username": username },function(err,record){
-       if(record)
-       {
-           console.log(records.password);
-           console.log(password);
-           if(records.password==password)
+    var loginObject = req.body.loginObject;
+    console.log(loginObject.username);
+     console.log(loginObject.password);
+     var query={};
+    query={"$and" : [{"username" :loginObject.username},{"password" : loginObject.password}]};
+   user.findOne(query,function(err,record){
+       
+           
+          
+           if(!err)
            {
-               sessionData = req.session;
-               sessionData.username = username;
-             res.send(req.session);
+               console.log(record);
+               currentSession=req.session;
+              currentSession._id=record._id;
+              currentSession.username = record.username;
+             console.log("login successfully");
+               res.send(req.session);
            }
-  }
+  
+       else{
+        console.log("login failed");
+           res.send("login failed");
+           
+       }
+    
     
  });
     
@@ -129,5 +144,76 @@ userController.logout = function(req,res,next){
   })  
 
 }
+
+
+userController.isUsernameAvailable =function(req,res){
+ var url_parts = url.parse(req.url, true);
+      var checkUsername = url_parts.Username;
+    user.find({"username" : checkUsername},{"_id":0,"username":1}).limit(1).exec(function(err,doc){
+     if(err){
+      res.send(err);
+      console.log("failed to query the db for data");
+     }
+    else{
+        if(doc.length >=1){
+         res.send(false);   
+        console.log("the username is already taken");
+        }
+        else {
+          res.send(true);   
+            }
+    }
+        })
+    
+}
+
+
+userController.isEmailAvailable = function(req,res){
+    var url_parts = url.parse(req.url, true);
+    var checkEmail = url_parts.email;
+      user.find({"email" : checkEmail},{"_id":0,"email":1}).limit(1).exec(function(err,doc){
+     if(err){
+      res.send(err);
+      console.log("failed to query the db for data");
+     }
+    else{
+        if(doc.length >=1){
+         res.send(false);   
+        console.log("the email is already registered");
+        }
+        else {
+         res.send(true);   
+            }
+    }
+        })
+    
+    
+}
+
+
+userController.isMobileExists = function(req,res){
+    var url_parts = url.parse(req.url, true);
+    var checkMobile = url_parts.mobile;
+      user.find({"mobile" : checkMobile},{"_id":0,"mobile":1}).limit(1).exec(function(err,doc){
+     if(err){
+      res.send(err);
+      console.log("failed to query the db for data");
+     }
+    else{
+        if(doc.length >=1){
+         res.send(false);   
+        console.log("the mobile is already registered");
+        }
+        else {
+         res.send(true);   
+            }
+    }
+        })
+    
+    
+}
+
+
+
 
 module.exports = userController;
