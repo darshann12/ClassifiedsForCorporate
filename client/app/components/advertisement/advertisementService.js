@@ -61,7 +61,7 @@ app.factory('advertisementService', ['$http', function($http) {
                         
                         
                                factory.getMyAdvertisements = function() {
-                   return  $http.get("/advertisements/myadvertisements").
+                   return  $http.get("/advertisements/myadvertisements?username=dark").
                    success(function(data, status, headers, config) {
                         
                           

@@ -49,6 +49,14 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
         })
+            .state('myAdvertisements',{
+            url:"/myadvertisements/",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/myAdvertisementsView.html"
+                    }
+            }
+        })
     .state('login',{
             url:"/login/",
             views:  {
