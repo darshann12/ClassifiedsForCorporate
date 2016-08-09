@@ -130,4 +130,75 @@ userController.logout = function(req,res,next){
 
 }
 
+
+userController.isUsernameAvailable =function(req,res){
+ var url_parts = url.parse(req.url, true);
+      var checkUsername = url_parts.Username;
+    user.find({"username" : checkUsername},{"_id":0,"username":1}).limit(1).exec(function(err,doc){
+     if(err){
+      res.send(err);
+      console.log("failed to query the db for data");
+     }
+    else{
+        if(doc.length >=1){
+         res.send(false);   
+        console.log("the username is already taken");
+        }
+        else {
+          res.send(true);   
+            }
+    }
+        })
+    
+}
+
+
+userController.isEmailAvailable = function(req,res){
+    var url_parts = url.parse(req.url, true);
+    var checkEmail = url_parts.email;
+      user.find({"email" : checkEmail},{"_id":0,"email":1}).limit(1).exec(function(err,doc){
+     if(err){
+      res.send(err);
+      console.log("failed to query the db for data");
+     }
+    else{
+        if(doc.length >=1){
+         res.send(false);   
+        console.log("the email is already registered");
+        }
+        else {
+         res.send(true);   
+            }
+    }
+        })
+    
+    
+}
+
+
+userController.isMobileExists = function(req,res){
+    var url_parts = url.parse(req.url, true);
+    var checkTelephone = url_parts.telephone;
+      user.find({"telephone" : checkTelephone},{"_id":0,"telephone":1}).limit(1).exec(function(err,doc){
+     if(err){
+      res.send(err);
+      console.log("failed to query the db for data");
+     }
+    else{
+        if(doc.length >=1){
+         res.send(false);   
+        console.log("the telephone is already registered");
+        }
+        else {
+         res.send(true);   
+            }
+    }
+        })
+    
+    
+}
+
+
+
+
 module.exports = userController;
