@@ -140,6 +140,7 @@ userController.login=function(req, res,next){
 }
 
 userController.logout = function(req,res,next){
+    console.log("loggin out"+currentSession.username);
   currentSession.destroy(function(err){
   if(err){
   console.log(err);}
@@ -220,7 +221,17 @@ userController.isMobileExists = function(req,res){
     
 }
 
-
+userController.isLoggedIn = function(req,res){
+   console.log("Checking is user logged in"+req.session.username);
+if(req.session.username){
+    res.send(true);
+}
+else{
+ res.send(false);
+    }
+    
+    
+}
 
 
 module.exports = userController;

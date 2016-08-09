@@ -36,7 +36,7 @@ if(err){
 
 advertisementController.updateAdvertisement = function(req,res){
  var query ={'_id' : req.body.advertisement._id};
-     user.findOneAndUpdate(query, req.body.advertisement, {upsert:false}, function(err, doc){
+    advertisement.findOneAndUpdate(query, req.body.advertisement, {upsert:false}, function(err, doc){
     if(err){
      console.log("some error has occured");
     res.send(err);

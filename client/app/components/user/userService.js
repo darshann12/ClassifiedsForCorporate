@@ -68,6 +68,17 @@ app.factory('userService', ['$http', function($http) {
                             });
 
                     }
+                       
+                         factory.isLoggedIn = function() {
+                       return  $http.get("/isloggedin")
+                            .success(function(data, status, headers, config) {
+                                return data;
+                            })
+                            .error(function(data, status, header, config) {
+                                return "failed to check is user logged in";
+                            });
+
+                    }    
                     
                         return factory;
                     

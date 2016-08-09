@@ -51,13 +51,14 @@
     <script src="/app/components/advertisement/editAdvertisementCtrl.js"></script>
     <script src="/app/components/user/loginCtrl.js"></script>
     <script src="/app/components/user/userService.js"></script>
-    <script src="/app/components/user/registerUserCtrl.js"></script>  
+    <script src="/app/components/user/registerUserCtrl.js"></script>
+    <script src="/app/mainCtrl.js"></script>
 
 </head>
 
-<body id="page-top" ng-app="cfc">
+<body id="page-top" ng-app="cfc" ng-controller="mainCtrl">
 
-
+    <div>
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="advertisementSearchBarCtrl">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -98,9 +99,13 @@
                         <br>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
-                    <li>
+                    <li ng-if="!isLoggedIn">
                           <br>
-                         <a class="page-scroll" ui-sref="login"><button type="button" class="btn btn-primary">LOG IN</button></a>
+                         <a class="page-scroll" ui-sref="login" ui-sref-opts="{ reload: true }"><button type="button" class="btn btn-primary">LOG IN</button></a>
+                    </li>
+                      <li ng-if="isLoggedIn">
+                          <br>
+                         <a class="page-scroll" ui-sref="logout" ui-sref-opts="{ reload: true }"><button type="button" class="btn btn-primary">LOG OUT</button></a>
                     </li>
                 </ul>
             </div>
@@ -151,6 +156,7 @@
     <!-- Theme JavaScript -->
 
     <script src="/assets/js/creative.min.js"></script>
+</div>
 </body>
 
 </html>
