@@ -54,6 +54,22 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
         }) 
+    .state('showAdvertisement',{
+            url:"/showAdvertisement/",
+        data:{requireLogin:true},
+             params: {
+     advertisement: null
+        },
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/advertisement/showAdvertisement.html"
+                    },
+                "header":{
+                        templateUrl:"app/components/shared/header.html"
+                    }
+            }
+            
+        })
         .state('advertisementSearchResult',{
             url:"/advertisementSearchResult/:category?book",
         params: {
@@ -71,6 +87,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
             .state('myAdvertisements',{
             url:"/myadvertisements/",
        data:{requireLogin:true},
+         
             views:  {
                     "contentView":{
                     templateUrl:"app/components/advertisement/myAdvertisementsView.html"
@@ -92,7 +109,9 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
             }
             
         })
-        .state('logout',{
+     
+    
+      .state('logout',{
             url:"/logout/"
          
             
@@ -114,6 +133,8 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
 
 app.run(function ($rootScope,$state,$http) {
    
+    
+    
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
       if(toState.name=="logout"){
           $http.post("users/logout")
