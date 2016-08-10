@@ -1,0 +1,50 @@
+         <header ng-controller="headerCtrl">
+             <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="advertisementSearchBarCtrl">
+            <div class="container-fluid">
+               <!-- Brand and toggle get grouped for better mobile display -->
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                  </button>
+                  <a class="navbar-brand page-scroll" ui-sref="home" style="color:white;font-size:50px;margin-left:20px">C F C</a>
+               </div>
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li>
+                        <br>
+                        <input type="text" ng-model="searchQuery" class="form-control" id="usr">
+                     </li>
+                     <li>
+                        <br>
+                        <button type="button" class="btn btn-primary" ng-click="searchAdvertisement()" >SEARCH</button>
+                     </li>
+                     <li>
+                        <br>
+                        <a class="page-scroll" ui-sref="createAdvertisement">POST ADVERTISEMENT</a>
+                     </li>
+                     <li>
+                        <br>
+                        <a class="page-scroll" ui-sref="myAdvertisements">MY ADVERTISEMENT</a>
+                     </li>
+                     <li>
+                        <br>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                     </li>
+                     <li>
+                        <br>
+                        <a class="page-scroll" href="#about">About</a>
+                     </li>
+                     <li ng-hide="isLoggedIn">
+                        <br>
+                        <a class="page-scroll" ui-sref="login" ui-sref-opts="{ reload: true }"><button type="button" class="btn btn-primary">LOG IN</button></a>
+                     </li>
+                     <li ng-show="isLoggedIn">
+                        <br>
+                        <a class="page-scroll" ui-sref="logout" ui-sref-opts="{ reload: true }"><button type="button" class="btn btn-primary">LOG OUT</button></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+</header>

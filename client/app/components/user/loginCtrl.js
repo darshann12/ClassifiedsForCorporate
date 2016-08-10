@@ -1,11 +1,12 @@
  var app=angular.module('cfc');
-app.controller('loginCtrl',['$scope','userService','$state',function($scope,userService,$state){
+app.controller('loginCtrl',['$scope','userService','$state','$rootScope',function($scope,userService,$state,$rootScope){
 $scope.user={};   
 $scope.login=function(){
     
     userService.loginUser($scope.user).then(function(response){
     console.log(response);
         if(response.data==$scope.user.username){
+            $rootScope.username=response.data;
             alert("logged in successfully");
             $state.go("home");
         }
@@ -18,8 +19,11 @@ $scope.login=function(){
 }
 
 $scope.logout=function(){
-     $scope.status=userService.logoutUser($scope.user);
-    alert(status);
+     userService.logoutUser($scope.user).then(function(response){
+    $rootScope.username=undefined;
+    
+    })
+    
     }
 
 
