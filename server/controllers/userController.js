@@ -146,7 +146,7 @@ userController.logout = function(req,res,next){
   console.log(err);}
       else{
        console.log("user logged out successfully");
-          res.redirect('/');
+          res.send("loggedOut");
           
       }
   })  

@@ -58,8 +58,8 @@ app.factory('userService', ['$http', function($http) {
 
                     }
                     
-                       factory.logoutUser = function(user) {
-                       return  $http.post("/users/logout", {user:user})
+                       factory.logoutUser = function() {
+                       return  $http.post("/users/logout")
                             .success(function(data, status, headers, config) {
                                 return data;
                             })

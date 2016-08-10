@@ -18,13 +18,6 @@ $scope.login=function(){
    
 }
 
-$scope.logout=function(){
-     userService.logoutUser($scope.user).then(function(response){
-    $rootScope.username=undefined;
-    
-    })
-    
-    }
 
 
 }]);

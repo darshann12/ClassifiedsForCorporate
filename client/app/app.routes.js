@@ -93,15 +93,9 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
             
         })
         .state('logout',{
-            url:"/logout/",
-            views:  {
-                    "contentView":{
-                    
-                    },
-                "header":{
-                        templateUrl:"app/components/shared/header.html"
-                    }
-            }
+            url:"/logout/"
+         
+            
             
         })
        .state('registerUser',{
@@ -118,9 +112,21 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         
 }]);
 
-app.run(function ($rootScope,$state) {
+app.run(function ($rootScope,$state,$http) {
    
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+      if(toState.name=="logout"){
+          $http.post("users/logout")
+  .then(function(response) {
+              
+      if(response.data=="loggedOut"){
+      
+        $rootScope.username=undefined;
+          $state.go("home");
+      }
+  });
+      
+      }
       var requireLogin;
      if(toState.data){
           requireLogin = toState.data.requireLogin;
