@@ -21,7 +21,7 @@ app.use(session({
 }))
 app.use(bodyParser.json())
 app.use('/', function (req, res, next) {
-  console.log(color.green('session:', Object.keys(req.session)));
+  console.log(color.green('session:', req.session.username));
   next();
 });
 
