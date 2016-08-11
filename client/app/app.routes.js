@@ -67,10 +67,11 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         }) 
     .state('showAdvertisement',{
             url:"/showAdvertisement/",
-        data:{requireLogin:true},
-             params: {
+         params: {
      advertisement: null
         },
+        data:{requireLogin:true},
+            
             views:  {
                     "contentView":{
                     templateUrl:"app/components/advertisement/showAdvertisement.html"
