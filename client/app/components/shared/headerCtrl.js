@@ -1,5 +1,5 @@
  var app=angular.module('cfc');
-app.controller('headerCtrl',['$scope','$rootScope',function($scope,$rootScope){
+app.controller('headerCtrl',['$scope','$rootScope','userService','$window','$state',function($scope,$rootScope,userService,$window,$state){
 
     if($rootScope.username){
         $scope.isLoggedIn=true;
@@ -8,6 +8,16 @@ app.controller('headerCtrl',['$scope','$rootScope',function($scope,$rootScope){
         
         $scope.isLoggedIn=false;
     }
+    $scope.logout=function(){
+     userService.logoutUser().then(function(response){
+     
+        $window.sessionStorage.removeItem("username");
+         $rootScope.username=undefined;
+         $scope.isLoggedIn=false;
+         $state.go("home");
+     
+     })
     
+    }
 
 }]);

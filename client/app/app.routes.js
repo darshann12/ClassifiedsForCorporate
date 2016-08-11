@@ -131,8 +131,12 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         
 }]);
 
-app.run(function ($rootScope,$state,$http) {
+app.run(function ($rootScope,$state,$http,$window) {
    
+    
+    if($window.sessionStorage.getItem("username")){
+        $rootScope.username=$window.sessionStorage.getItem("username");
+    }
     
     
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
