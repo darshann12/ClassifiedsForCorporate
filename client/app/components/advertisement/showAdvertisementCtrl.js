@@ -1,6 +1,7 @@
 var app=angular.module('cfc');
 app.controller('showAdvertisementCtrl',['$scope','transactionService','advertisementService','$stateParams','$rootScope',function($scope,transactionService,advertisementService,$stateParams,$rootScope){
 
+    $scope.username=$rootScope.username;
 $scope.advertisement=$stateParams.advertisement;
 $scope.addComment=function(){
     alert($scope.commentBody);

@@ -1,6 +1,6 @@
 <div ng-controller="showAdvertisementCtrl" >
 <div class="field col-md-9 col-md-offset-9">
-<button ng-if="!advertisement.creator==username" type="button" ng-click="createTransaction()" class="btn btn-primary">Buy Now</button>    
+<button ng-if="advertisement.creator!=username" type="button" ng-click="createTransaction()" class="btn btn-primary">Buy Now</button>    
 </div>
     <div class="container">
      <h3>Details of searched item.</h3>
