@@ -159,11 +159,13 @@ app.run(function ($rootScope,$state,$http,$window,userService) {
             
             $window.sessionStorage.removeItem("username");
         }
-    
-    })
-    if($window.sessionStorage.getItem("username")){
+        
+        if($window.sessionStorage.getItem("username")){
         $rootScope.username=$window.sessionStorage.getItem("username");
     }
+    
+    })
+    
     
     
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
