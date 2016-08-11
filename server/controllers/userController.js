@@ -107,7 +107,7 @@ userController.login=function(req, res,next){
      console.log(loginObject.password);
      var query={};
     query={"$and" : [{"username" :loginObject.username},{"password" : loginObject.password}]};
-   user.find(query,function(err,record){
+   user.findOne(query,function(err,record){
        
            
           
@@ -121,8 +121,9 @@ userController.login=function(req, res,next){
               currentSession=req.session;
               currentSession._id=record._id;
               currentSession.username = record.username;
-             console.log("logged in successfully");
-               res.send(req.session.username);
+             console.log("logged in successfully session username:"+currentSession.username);
+               
+                   res.send(currentSession.username);
                }
              
 
