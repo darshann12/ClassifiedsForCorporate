@@ -13,8 +13,7 @@ app.controller('myAdvertisementsCtrl',['$scope','advertisementService','$state',
         })
     
     }
-    
-    
+     
     $scope.edit=function(index){
         $state.go("editAdvertisement",{advertisement:$scope.myAdvertisements[index]});
         
