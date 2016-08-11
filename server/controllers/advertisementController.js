@@ -29,6 +29,7 @@ if(err){
     else
     {
     console.log("ad removed successfully");    
+        res.send(true);
     }
 })
     

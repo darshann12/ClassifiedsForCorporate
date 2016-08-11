@@ -131,9 +131,23 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         
 }]);
 
-app.run(function ($rootScope,$state,$http,$window) {
+app.run(function ($rootScope,$state,$http,$window,userService) {
    
+    userService.isLoggedIn().then(function(response){
     
+        if(response.data){
+        
+            if($window.sessionStorage.getItem("username")){
+        $rootScope.username=$window.sessionStorage.getItem("username");
+    }
+        
+        }
+        else{
+            
+            $window.sessionStorage.removeItem("username");
+        }
+    
+    })
     if($window.sessionStorage.getItem("username")){
         $rootScope.username=$window.sessionStorage.getItem("username");
     }
