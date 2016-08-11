@@ -2,58 +2,37 @@
 
 
 <div class="row">
-    <div class="col-sm-3"  style="padding-right:20px; border-right: 1px solid #ccc;">
+    
+    
+    
+  <div class="col-sm-3" style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc;" >
+        </div>
+
+    <div class="col-sm-6"  style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
     
         
         
-        <h2 align="center">Requests waiting For Your Approval</h2>
-        <h3 ng-hide="waitingForApprovalTransactions.length" align="center"> No requests </h3>
-    <div class="well" ng-repeat="transaction in waitingForApprovalTransactions"> 
+        <h2 align="center">Your Transactions</h2>
+        <h3 ng-hide="myTransactions.length" align="center"> No Transactions Yet </h3>
+    <div class="well" ng-repeat="transaction in myTransactions"> 
         
-        <h3>{{transaction.product}}</h3>
-        <h3>{{transaction.buyer}}</h3>
-        <button ng-click="update('APPROVED',$index)" class="btn btn primary">Approve</button>
-        <button ng-click="update('REJECTED',$index)" class="btn btn primary">Reject</button>
+        <h3 align="center"><i>{{transaction.product}}</i></h3>
+        <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">You bought this from {{transaction.seller}} for {{transaction.price}}</p>
+        <p ng-if="transaction.seller==username&&transaction.status=='REJECTED'">You Rejected the offer of {{transaction.price}} by {{transaction.buyer}}</p>
+        
+        <p ng-if="transaction.seller==username&&transaction.status=='APPROVED'">You sold this for {{transaction.price}} to {{transaction.buyer}}</p>
+        <p ng-if="transaction.buyer==username&&transaction.status=='REJECTED'">Your offer of {{transaction.price}} to {{transaction.seller}} was rejected </p>
+  
+        
+        <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-success" ng-click="update('APPROVED',$index)" >Approve</button>
+        <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-danger" ng-click="update('REJECTED',$index)" >Reject</button>
         </div>
         
         
     </div>
-    <div class="col-sm-3 " style="padding-right:20px; border-right: 1px solid #ccc;">
-       <h2 align="center">Requests Pending For Approval</h2>
-        <h3 ng-hide="waitingToBeApprovedTransactions.length" align="center">No Pending request</h3>
-            <div class="well" ng-repeat="transaction in waitingToBeApprovedTransactions"> 
-        
-        <h3>{{transaction.product}}</h3>
-        <h3>{{transaction.buyer}}</h3>
-                <br><br>
-        
+    <div class="col-sm-3">
         </div>
-        </div>
-    
-    
-        <div class="col-sm-3 " style="padding-right:20px; border-right: 1px solid #ccc;">
-       <h2 align="center">Approved Transactions</h2>
-        <h3 ng-hide="approvedTransactions.length" align="center">No Approved Transactions</h3>
-            <div class="well" ng-repeat="transaction in approvedTransactions"> 
-        
-        <h3>{{transaction.product}}</h3>
-        <h3>{{transaction.buyer}}</h3>
-                <br><br>
-        
-        </div>
-        </div>
-    
-        <div class="col-sm-3 " >
-       <h2 align="center">Rejected Transactions</h2>
-        <h3 ng-hide="rejectedTransactions.length" align="center">No Rejected Transactions</h3>
-            <div class="well" ng-repeat="transaction in rejectedTransactions"> 
-        
-        <h3>{{transaction.product}}</h3>
-        <h3>{{transaction.buyer}}</h3>
-                <br><br>
-        
-        </div>
-        </div>
+
 
     
     

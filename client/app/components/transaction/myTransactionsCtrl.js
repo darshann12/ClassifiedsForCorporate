@@ -1,29 +1,12 @@
 var app = angular.module('cfc');
 app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope',function($scope,transactionService,$rootScope){
 
-    $scope.waitingForApprovalTransactions;
-    $scope.waitingToBeApprovedTransactions;
+
+
     
-    transactionService.searchTransaction({seller:$rootScope.username,status:"PROCESSING"}).then(function(response){
-   $scope.waitingForApprovalTransactions=response.data;
-        
-    });
-    
-     transactionService.searchTransaction({buyer:$rootScope.username,status:"PROCESSING"}).then(function(response){
-    $scope.waitingToBeApprovedTransactions=response.data;
-        
-    });
-    
-    
-    
-      transactionService.searchTransaction({buyer:$rootScope.username,status:"APPROVED"}).then(function(response){
-    $scope.approvedTransactions=response.data;
-        
-    });
-    
-    
-      transactionService.searchTransaction({buyer:$rootScope.username,status:"REJECTED"}).then(function(response){
-    $scope.rejectedTransactions=response.data;
+    $scope.username=$rootScope.username;
+      transactionService.searchTransaction({seller:$rootScope.username,buyer:$rootScope.username}).then(function(response){
+    $scope.myTransactions=response.data;
         
     });
     

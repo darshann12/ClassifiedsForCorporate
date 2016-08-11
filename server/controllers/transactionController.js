@@ -11,12 +11,12 @@ transactionController.createTransaction= function(req,res){
     
     transaction.create(
          req.body.transaction
-            ,function(err, user) {
+            ,function(err, doc) {
             if (err)
                 res.send(err);
             else{
                 console.log("transaction completed successfully ");
-                res.redirect('/');
+                res.send(doc);
           
             }
         });
