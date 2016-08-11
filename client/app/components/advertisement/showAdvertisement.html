@@ -1,4 +1,4 @@
-<div ng-controller="advertisementCtrl">
+<div ng-controller="showAdvertisementCtrl" >
     
 <div class="container">
      <h3>Details of searched item.</h3>
@@ -38,20 +38,29 @@
     
     </tbody>
   </table>
-
-<div class="panel-group">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" href="#collapse1">Description :</a>
-      </h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse">
-      <div class="panel-body">{{advertisement.name}}</div>
-      <div class="panel-footer">{{advertisement.description}}</div>
-    </div>
-  </div>
+<h3>Comments:</h3>
+<div ng-repeat="comment in advertisement.comments">    
+<div class="col-sm-5">
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong>{{comment.user}}</strong> <span class="text-muted">commented on {{comment.date}}</span>
 </div>
-
-</div>   
+<div class="panel-body">
+ {{comment.body}}
+</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
+</div><!-- /col-sm-5 -->
+</div>
+<div class="col-sm-12">
+ <form class="form-inline">      
+     <div class="form-group">
+                
+  <input ng-model="commentBody" class="form-control" type="text" placeholder="YOUR COMMENTS"/>
+            </div>
+            <div class="form-group">
+                <button ng-click="addComment()" class="btn btn-success">Add</button>
+            </div>
+        </form>
+</div>
+</div>  
 </div>

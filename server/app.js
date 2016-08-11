@@ -19,14 +19,14 @@ app.use(session({
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000
 }))
-
+app.use(bodyParser.json())
 app.use('/', function (req, res, next) {
   console.log(color.green('session:', Object.keys(req.session)));
   next();
 });
 
 // parse application/json 
-app.use(bodyParser.json())
+
 app.use('/', routes);
 
 

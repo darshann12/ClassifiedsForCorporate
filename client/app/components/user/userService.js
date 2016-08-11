@@ -48,18 +48,18 @@ app.factory('userService', ['$http', function($http) {
                     }
                     
                     factory.loginUser = function(user) {
-                        $http.post("/users/login", {loginObject:user})
+                       return $http.post("/users/login", {loginObject:user})
                             .success(function(data, status, headers, config) {
-                                return data;
+                                
                             })
                             .error(function(data, status, header, config) {
-                                return "Wrong username or password";
+                                console.log("Wrong username or password") ;
                             });
 
                     }
                     
-                       factory.logoutUser = function(user) {
-                        $http.post("/users/logout", {user:user})
+                       factory.logoutUser = function() {
+                       return  $http.post("/users/logout")
                             .success(function(data, status, headers, config) {
                                 return data;
                             })
@@ -68,6 +68,17 @@ app.factory('userService', ['$http', function($http) {
                             });
 
                     }
+                       
+                         factory.isLoggedIn = function() {
+                       return  $http.get("/isloggedin")
+                            .success(function(data, status, headers, config) {
+                                return data;
+                            })
+                            .error(function(data, status, header, config) {
+                                return "failed to check is user logged in";
+                            });
+
+                    }    
                     
                         return factory;
                     

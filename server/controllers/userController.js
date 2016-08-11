@@ -121,12 +121,8 @@ userController.login=function(req, res,next){
                  currentSession=req.session;
               currentSession._id=record._id;
               currentSession.username = record.username;
-
-             console.log("login successfully");
-               res.send(req.username);
-
              console.log("logged in successfully");
-               res.send(req.session);
+               res.send(req.session.username);
                }
              
 
@@ -144,12 +140,13 @@ userController.login=function(req, res,next){
 }
 
 userController.logout = function(req,res,next){
+    console.log("loggin out"+currentSession.username);
   currentSession.destroy(function(err){
   if(err){
   console.log(err);}
       else{
        console.log("user logged out successfully");
-          res.redirect('/');
+          res.send("loggedOut");
           
       }
   })  
@@ -224,7 +221,17 @@ userController.isMobileExists = function(req,res){
     
 }
 
-
+userController.isLoggedIn = function(req,res){
+   console.log("Checking is user logged in"+req.session.username);
+if(req.session.username){
+    res.send(true);
+}
+else{
+ res.send(false);
+    }
+    
+    
+}
 
 
 module.exports = userController;

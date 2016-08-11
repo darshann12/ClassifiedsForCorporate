@@ -1,9 +1,14 @@
 var app = angular.module("cfc");
-app.controller("advertisementSearchResultCtrl", ['$scope', '$stateParams', 'advertisementService', function($scope, $stateParams, advertisementService) {
+app.controller("advertisementSearchResultCtrl", ['$scope', '$stateParams', 'advertisementService','$state', function($scope, $stateParams, advertisementService,$state) {
 
 
     $scope.searchQuery = $stateParams.searchQuery;
     $scope.category = $stateParams.category;
+    
+    $scope.showAdvertisement=function(index){
+        $state.go("showAdvertisement",{advertisement:{advertisement:$scope.advertisements[index]}});
+                
+    }
 
     if ($scope.searchQuery) {
 
