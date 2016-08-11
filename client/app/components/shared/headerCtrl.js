@@ -12,6 +12,8 @@ app.controller('headerCtrl',['$scope','$rootScope','userService','$window','$sta
      userService.logoutUser().then(function(response){
      
         $window.sessionStorage.removeItem("username");
+         $rootScope.username=undefined;
+         $scope.isLoggedIn=false;
          $state.go("home");
      
      })
