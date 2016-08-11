@@ -107,7 +107,7 @@ userController.login=function(req, res,next){
      console.log(loginObject.password);
      var query={};
     query={"$and" : [{"username" :loginObject.username},{"password" : loginObject.password}]};
-   user.findOne(query,function(err,record){
+   user.find(query,function(err,record){
        
            
           
