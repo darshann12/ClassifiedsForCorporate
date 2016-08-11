@@ -10,10 +10,6 @@ $scope.createAdvertisement=function(){
                                 alert("advertisement posted successfully");
                             $state.go("myAdvertisements");
                             }
-    });
-   
-   
-
-    
+    }); 
 }
 }]);
