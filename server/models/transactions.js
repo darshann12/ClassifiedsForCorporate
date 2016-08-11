@@ -4,7 +4,8 @@ var transactionSchema = {
 seller : {type: String , required : true}, 
 buyer : {type : String, required : true},
 price : {type : Number, required : true},
-product : {type : String, required : true},   
+product : {type : String, required : true},
+status:{type:String,enum:['ACCEPTED','REJECTED','PROCESSING'],required:true,default:"PROCESSING"},
 warrantyDate : {type : Date},
 date : { type: Date, default: Date.now }
     }

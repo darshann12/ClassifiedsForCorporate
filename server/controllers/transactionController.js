@@ -22,10 +22,20 @@ transactionController.createTransaction= function(req,res){
         });
 }
 
-transactionController.updateTransaction= function(req,res){
-  
+transactionController.updateTransaction = function(req,res){
+ var query ={'_id' : req.body.transaction._id};
+    transaction.findOneAndUpdate(query, req.body.transaction, {upsert:false}, function(err, doc){
+    if(err){
+     console.log("some error has occured");
+    res.send(err);
+    }
+    else{
+    console.log("data updated");
+    res.json(doc);
+    }
+}); 
     
-   
+    
 }
 
 
@@ -63,8 +73,9 @@ transactionController.searchTransaction = function(req,res){
     var url_parts = url.parse(req.url, true);
     var options = url_parts.query;
     var query = {};
-    
-    
+   
+    console.log("the option obj"+options.buyer);
+    console.log("the option obj"+options.seller);
     
         if('seller' in options){
     query =  { 'seller' : options.seller }
@@ -74,6 +85,9 @@ transactionController.searchTransaction = function(req,res){
     query =  { 'buyer' : options.buyer }
     }
     
+    if('status' in options){
+    query =  { 'status' : options.status }
+    }
     
     
   if('dateBefore' in options){

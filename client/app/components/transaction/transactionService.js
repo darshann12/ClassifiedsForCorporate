@@ -50,7 +50,9 @@ app.factory('transactionService', ['$http', function($http) {
                     }
                        
                        factory.searchTransaction = function(options) {
-                     return    $http.get("/transactions/search", {options:options})
+                     return    $http.get("/transactions/search",{
+                            params: options
+                        })
                             .success(function(data, status, headers, config) {
                                 return data;
                             })
