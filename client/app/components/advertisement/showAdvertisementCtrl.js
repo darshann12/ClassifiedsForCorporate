@@ -1,5 +1,5 @@
 var app=angular.module('cfc');
-app.controller('showAdvertisementCtrl',['$scope','advertisementService','$stateParams','$rootScope',function($scope,advertisementService,$stateParams,$rootScope){
+app.controller('showAdvertisementCtrl',['$scope','transactionService','advertisementService','$stateParams','$rootScope',function($scope,transactionService,advertisementService,$stateParams,$rootScope){
 
 $scope.advertisement=$stateParams.advertisement;
 $scope.addComment=function(){
@@ -11,5 +11,16 @@ $scope.advertisement.comments.push($scope.comment);
     
     })
 
-}    
+} 
+
+$scope.createTransaction=function(){
+    $scope.transaction={seller:$scope.advertisement.creator, 
+                        buyer:$rootScope.username,                                                       price:$scope.advertisement.price,
+                        product:$scope.advertisement.name,
+                       };
+ transactionService.createTransaction($scope.transaction).then(function(response){
+        console.log("transation happened "+response.data); 
+ })
+}
+
 }]);  
