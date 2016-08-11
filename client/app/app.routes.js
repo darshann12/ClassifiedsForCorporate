@@ -16,6 +16,17 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
          })
+          .state('myTransactions',{
+          url:"/mytransactions",
+            views : {
+                    "contentView":{
+                        templateUrl:"app/components/transaction/myTransactionsView.html"
+                    },
+                "header":{
+                        templateUrl:"app/components/shared/header.html"
+                    }
+            }
+         })
         .state('advertisement',{
             url:"/advertisement/:category?book",
             views:  {

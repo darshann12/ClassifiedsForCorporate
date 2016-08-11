@@ -9,7 +9,7 @@ warrantyDate : {type : Date},
 date : { type: Date, default: Date.now }
     }
 
-var transObj = new dbObj.Schema(transactionSchema,{collection:"transactionHistory",version : false});
+var transObj = new dbObj.Schema(transactionSchema,{collection:"transactions",version : false});
 
-var transactionObj = dbObj.model("transactionHistory",transObj);
+var transactionObj = dbObj.model("transactions",transObj);
 module.exports = transactionObj;

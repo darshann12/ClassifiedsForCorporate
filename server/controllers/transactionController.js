@@ -22,6 +22,13 @@ transactionController.createTransaction= function(req,res){
         });
 }
 
+transactionController.updateTransaction= function(req,res){
+  
+    
+   
+}
+
+
 transactionController.deleteTransaction =function(req,res){
 transaction.findOneAndRemove({'_id' : req.body.id},function(err){
 if(err){
@@ -56,6 +63,18 @@ transactionController.searchTransaction = function(req,res){
     var url_parts = url.parse(req.url, true);
     var options = url_parts.query;
     var query = {};
+    
+    
+    
+        if('seller' in options){
+    query =  { 'seller' : options.seller }
+    }
+
+        if('buyer' in options){
+    query =  { 'buyer' : options.buyer }
+    }
+    
+    
     
   if('dateBefore' in options){
         query = {

@@ -1,4 +1,4 @@
-var app.angular.module('cfc');
+var app=angular.module('cfc');
 app.factory('transactionService', ['$http', function($http) {
                 var factory = {};
 
@@ -37,6 +37,28 @@ app.factory('transactionService', ['$http', function($http) {
                                 return "cannot delete transaction";
                             });
                     }
+                    
+                    
+                       factory.updateTransaction = function(transaction) {
+                     return    $http.put("/transactions", {transaction:transaction})
+                            .success(function(data, status, headers, config) {
+                                return data;
+                            })
+                            .error(function(data, status, header, config) {
+                                return "cannot delete transaction";
+                            });
+                    }
+                       
+                       factory.searchTransaction = function(options) {
+                     return    $http.get("/transactions/search", {options:options})
+                            .success(function(data, status, headers, config) {
+                                return data;
+                            })
+                            .error(function(data, status, header, config) {
+                                return "cannot delete transaction";
+                            });
+                    }
+
 
                         return factory;
                     }]);
