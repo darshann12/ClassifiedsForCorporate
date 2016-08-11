@@ -20,5 +20,8 @@ app.controller("registerUserCtrl",['$scope','userService','$state',function($sco
     })
     
     }
+    $scope.signUpUser=function(){
+    $state.go("registerUser");
+    }
 }])
 
