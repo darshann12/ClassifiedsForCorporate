@@ -223,7 +223,16 @@ userController.isMobileExists = function(req,res){
 }
 
 userController.isLoggedIn = function(req,res){
-   console.log("Checking is user logged in"+currentSession.username);
+    var currentSession=req.session;
+    if(currentSession){
+    
+     console.log("Checking is user logged in"+currentSession.username);
+    
+    }
+    else{
+        res.send(false);
+    }
+  
 if(currentSession.username){
     res.send(true);
 }

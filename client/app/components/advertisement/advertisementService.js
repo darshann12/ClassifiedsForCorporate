@@ -38,7 +38,7 @@ app.factory('advertisementService', ['$http', function($http) {
                         });
                 }
                     factory.deleteAdvertisement = function(advertisement) {
-                        $http.delete("/advertisements", {advertisement:advertisement})
+                      return  $http.delete("/advertisements", {id:advertisement.id})
                             .success(function(data, status, headers, config) {
                                 return response.data;
                             })
