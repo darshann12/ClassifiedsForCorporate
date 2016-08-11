@@ -18,6 +18,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
          })
           .state('myTransactions',{
           url:"/mytransactions",
+        data:{requireLogin:true},
             views : {
                     "contentView":{
                         templateUrl:"app/components/transaction/myTransactionsView.html"
