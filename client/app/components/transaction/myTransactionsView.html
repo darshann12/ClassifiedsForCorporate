@@ -12,7 +12,7 @@
     
         
         
-        <h2 align="center">Your Transactions</h2>
+        <h2 align="center" ng-if="advertisement.length!=0">Your Transactions</h2>
         <h3 ng-hide="myTransactions.length" align="center"> No Transactions Yet </h3>
     <div class="well" ng-repeat="transaction in myTransactions"> 
         
