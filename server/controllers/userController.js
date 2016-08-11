@@ -118,7 +118,7 @@ userController.login=function(req, res,next){
                    res.send("login failed");
                }else{
                
-                 currentSession=req.session;
+              currentSession=req.session;
               currentSession._id=record._id;
               currentSession.username = record.username;
              console.log("logged in successfully");
@@ -222,8 +222,8 @@ userController.isMobileExists = function(req,res){
 }
 
 userController.isLoggedIn = function(req,res){
-   console.log("Checking is user logged in"+req.session.username);
-if(req.session.username){
+   console.log("Checking is user logged in"+currentSession.username);
+if(currentSession.username){
     res.send(true);
 }
 else{
