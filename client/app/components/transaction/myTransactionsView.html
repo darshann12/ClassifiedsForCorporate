@@ -9,20 +9,19 @@
         <h3 ng-hide="myTransactions.length" align="center"> No Transactions Yet </h3>
         <div class="well" ng-repeat="transaction in myTransactions"> 
         
-        <h3 align="center"><i>{{transaction.product}}</i></h3>
-        <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">You bought this from {{transaction.seller}} for {{transaction.price}}</p>
-        <p ng-if="transaction.seller==username&&transaction.status=='REJECTED'">You Rejected the offer of {{transaction.price}} by {{transaction.buyer}}</p>
-        
-        <p ng-if="transaction.seller==username&&transaction.status=='APPROVED'">You sold this for {{transaction.price}} to {{transaction.buyer}}</p>
-        <p ng-if="transaction.buyer==username&&transaction.status=='REJECTED'">Your offer of {{transaction.price}} to {{transaction.seller}} was rejected </p>
+        <h3 align="center">Product:<b>{{transaction.product}}</b></h3>
+            <p><b>Price:{{transaction.price}}</b></p>
+            <p ng-if="transaction.buyer==username&&transaction.status=='PROCESSING'">Waiting for seller response</p>
+        <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">This product is offered to you by {{transaction.seller}} for the above price</p>
+        <p ng-if="transaction.seller==username&&transaction.status=='REJECTED'">You rejected the offer</p>        
+        <p ng-if="transaction.seller==username&&transaction.status=='APPROVED'">You offered {{transaction.product}} to {{transaction.buyer}} for the above price</p>
+            
+        <p ng-if="transaction.buyer==username&&transaction.status=='REJECTED'">Your offer is rejected by the seller</p>
   
         
         <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-success" ng-click="update('APPROVED',$index)" >Approve</button>
         <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-danger" ng-click="update('REJECTED',$index)" >Reject</button>
         </div>
-        
-         
-
         
     </div>
     <div class="col-sm-3">
