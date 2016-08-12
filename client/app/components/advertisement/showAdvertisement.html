@@ -3,14 +3,12 @@
 </div>
     <div class="container">
      <h3 id="showadv">Details of the searched item</h3>
-   
-        <h3 ng-if="advertisement.creator==username">Your advertisement</h3>
         <div class="container showresults" >
-		
+
      <div class="well well-lg " id="showwell">
 
  <button ng-if="advertisement.creator!=username" type="button" ng-click="createTransaction()" class="btn btn-success" id="buynow">Buy Now</button>
-     <h2 class="h2ad">{{advertisement.name}} </h2>
+    		 <h3 id="your" ng-if="advertisement.creator==username">Your advertisement</h3> <h2 class="h2ad">{{advertisement.name}} </h2>
 <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
       
          
