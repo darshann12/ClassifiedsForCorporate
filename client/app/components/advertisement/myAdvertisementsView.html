@@ -1,7 +1,37 @@
 <div ng-controller="myAdvertisementsCtrl">
-    <h3>Your Advertisements</h3>
+    <h3 class="search">Your Advertisements</h3>
     <div ng-repeat="advertisement in myAdvertisements">
-        <div class="container">
+	       <div class="container searchresults" >
+		
+     <div class="well well-lg " id="well">
+
+
+  <br>
+     <h2 class="h2ad">{{advertisement.name}} </h2>
+<h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
+      
+        
+    <br>
+        
+   
+   <h5 class="h4ad">  {{advertisement.category}} </h5>
+       <h5 class="h4ad">  Advertisement validity till  {{advertisement.dateExp}} </h5>
+   
+  
+    
+
+         <h4 id="price" >Rs {{advertisement.price}} </h4>
+        Is Negotiable :  {{advertisement.isNegotiable}}
+	
+    
+   <br>
+   <br>
+  
+
+<button ng-click="delete($index)" class="btn btn-primary" id="myadv">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
+<button ng-click="edit($index)" class="btn btn-primary" id="myadv">EDIT <span class="glyphicon glyphicon-pencil"></span></button>
+  </div>
+ <!--        <div class="container">
      
     <table class="table">
     <tbody>
@@ -41,10 +71,9 @@
   </table>
 
 
-</div>
+</div> -->
 
-<button ng-click="delete($index)" class="btn btn-primary">DELETE</button>
-<button ng-click="edit($index)" class="btn btn-primary">EDIT</button>
+
 </div>
 
 
