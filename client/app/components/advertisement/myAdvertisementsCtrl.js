@@ -3,7 +3,7 @@ app.controller('myAdvertisementsCtrl',['$scope','advertisementService','$state',
     
     
     $scope.delete=function(index){
-        alert("in delete")
+        
         advertisementService.deleteAdvertisement($scope.myAdvertisements[index]).then(function(response){
             alert("advertisement deleted");
              advertisementService.getMyAdvertisements().then(function(response){

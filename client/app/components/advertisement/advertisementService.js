@@ -38,9 +38,9 @@ app.factory('advertisementService', ['$http', function($http) {
                         });
                 }
                     factory.deleteAdvertisement = function(advertisement) {
-                      return  $http.delete("/advertisements", {id:advertisement.id})
+                      return  $http.post("/advertisements/delete", {id:advertisement._id})
                             .success(function(data, status, headers, config) {
-                                return response.data;
+                                
                             })
                             .error(function(data, status, header, config) {
                                 return "cannot fetch user";

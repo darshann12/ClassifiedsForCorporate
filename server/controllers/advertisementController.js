@@ -21,6 +21,7 @@ advertisementController.createAdvertisement = function(req,res){
 }
 
 advertisementController.deleteAdvertisement = function(req,res){
+    console.log( "deleting ad with id "+req.body.id);
 advertisement.findOneAndRemove({'_id' : req.body.id},function(err){
 if(err){
  console.log(err); 

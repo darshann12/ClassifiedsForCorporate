@@ -14,7 +14,7 @@ router.get('/',advertisementController.getAdvertisement );
 router.put('/', advertisementController.updateAdvertisement);
 
 //DELETE is ofcourse delete :-)u
-router.delete('/', advertisementController.deleteAdvertisement);
+router.post('/delete', advertisementController.deleteAdvertisement);
 
 router.get('/search',advertisementController.searchAdvertisement );
 
