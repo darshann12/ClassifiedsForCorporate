@@ -21,7 +21,7 @@ app.factory('userService', ['$http', function($http) {
                             }
                         })
                         .then(function(response) {
-                            return response.data;
+                            return response;
                         });
 
                 }
