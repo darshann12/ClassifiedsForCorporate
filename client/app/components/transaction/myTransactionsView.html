@@ -1,20 +1,13 @@
 <div ng-controller="myTransactionsCtrl">
-
-
 <div class="row">
-    
-    
-    
   <div class="col-sm-3" style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc;" >
         </div>
 
     <div class="col-sm-6"  style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
-    
-        
         
         <h2 align="center" ng-if="advertisement.length!=0">Your Transactions</h2>
         <h3 ng-hide="myTransactions.length" align="center"> No Transactions Yet </h3>
-    <div class="well" ng-repeat="transaction in myTransactions"> 
+        <div class="well" ng-repeat="transaction in myTransactions"> 
         
         <h3 align="center"><i>{{transaction.product}}</i></h3>
         <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">You bought this from {{transaction.seller}} for {{transaction.price}}</p>
