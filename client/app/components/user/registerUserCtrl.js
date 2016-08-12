@@ -14,8 +14,7 @@ app.controller("registerUserCtrl",['$scope','userService','$state',function($sco
         
             alert("failed to create account");
             
-        }
-        
+        } 
         
     })
     
