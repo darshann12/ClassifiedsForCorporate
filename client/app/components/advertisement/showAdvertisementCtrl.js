@@ -16,11 +16,18 @@ $scope.advertisement.comments.push($scope.comment);
 
 $scope.createTransaction=function(){
     $scope.transaction={seller:$scope.advertisement.creator, 
-                        buyer:$rootScope.username,                                                       price:$scope.advertisement.price,
-                        product:$scope.advertisement.name,
+                        buyer:$rootScope.username,                                                                                              price:$scope.advertisement.price,
+                            product:$scope.advertisement.name,
+                        advertisement:$scope.advertisement._id
                        };
+    
+    
  transactionService.createTransaction($scope.transaction).then(function(response){
-        console.log("transation happened "+response.data); 
+        console.log("transation happened "+response.data);
+     
+     
+        
+     
  })
 }
 

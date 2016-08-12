@@ -18,11 +18,11 @@ app.factory('advertisementService', ['$http', function($http) {
                 factory.getAdvertisement = function(advertisementId) {
                     return  $http.get("/advertisements", {
                             params: {
-                                advertisement: advertisementId
+                                _id: advertisementId
                             }
                         })
                         .then(function(response) {
-                            return response.data;
+                            return response;
                         });
 
                 }

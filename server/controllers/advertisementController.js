@@ -43,7 +43,8 @@ advertisementController.updateAdvertisement = function(req,res){
     res.send(err);
     }
     else{
-    console.log("data updated");
+        console.log("in updateAdvertisement"+req.body.advertisement);
+    console.log("data updated"+doc);
     res.json(doc);
     }
 }); 
@@ -58,38 +59,9 @@ advertisementController.searchAdvertisement = function(req,res){
     if('name' in options){
     query =  { 'name' : options.name }
     }
-    
-    if('saleType' in options){
-        query = {
-            'saleType': options.saleType, 
-        }
-    }
-  if('category' in options){
-        query = {
-            'category' : {"$in" : options.category}, 
-        }
-    }
-  if('dateCreated' in options){
-        query = {
-            'dateCreated' : {"$gte" : options.dateCreated}, 
-        }
-    }
-    
-   if('dateExp' in options){
-        query = {
-            'dateExp' : {"$gte" : options.dateExp}, 
-        }
-    }
-  if('priceLess' in options){
-query = {
-    'price' : {"$lte" : options.priceLess}    
-}
-}
- if('priceGreater' in options){
-query = {
-    'price' : {"$gte" : options.priceGreater}    
-}
-}
+     query.status="OPEN";
+
+
     console.log(options);
     console.log(query);
  advertisement.find(query).limit(options.limit).exec(function(err,docs){
@@ -108,7 +80,7 @@ query = {
 advertisementController.getAdvertisement = function(req,res){
     var url_parts = url.parse(req.url, true);
 var query = url_parts.query;
-        if (query._id.match(/^[0-9a-fA-F]{24}$/)) {
+        
 
      advertisement.find({'_id': query._id},function(err,docs){
  if(err){
@@ -119,7 +91,7 @@ var query = url_parts.query;
       res.json(docs);    
      }
  })
-        }
+        
 }
 
 

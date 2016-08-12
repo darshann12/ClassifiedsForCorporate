@@ -20,6 +20,7 @@ var advertisementSchema = {
     comments :[{ body: String, 
                  date:{ type: Date, default: Date.now },
                  user : String}],
+    status:{type:String,enum:['OPEN','CLOSED'],default:'OPEN'}
 
    
 

@@ -152,12 +152,14 @@ app.run(function ($rootScope,$state,$http,$window,userService) {
         
             if($window.sessionStorage.getItem("username")){
         $rootScope.username=$window.sessionStorage.getItem("username");
+                $state.go("home");
     }
         
         }
         else{
             
             $window.sessionStorage.removeItem("username");
+            $state.go("login");
         }
         
         if($window.sessionStorage.getItem("username")){

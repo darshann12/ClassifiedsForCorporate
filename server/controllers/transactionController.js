@@ -72,35 +72,23 @@ var query = url_parts.query;
 transactionController.searchTransaction = function(req,res){
     var url_parts = url.parse(req.url, true);
     var options = url_parts.query;
-    var query = {};
+    var query = { $or:[{'buyer':options.buyer}, {'seller':options.seller} ]};
    
     console.log("the option obj"+options.buyer);
     console.log("the option obj"+options.seller);
     
-        if('seller' in options){
+/*        if('seller' in options){
     query =  { 'seller' : options.seller }
     }
 
         if('buyer' in options){
     query =  { 'buyer' : options.buyer }
-    }
+    }*/
     
-    if('status' in options){
-    query =  { 'status' : options.status }
-    }
+
     
     
-  if('dateBefore' in options){
-        query = {
-            'date' : {"$gte" : options.dateBefore}, 
-        }
-    }
-    
-   if('dateAfter' in options){
-        query = {
-            'date' : {"$lte" : options.dateExp}, 
-            }
-    }
+
 console.log(query);
  transaction.find(query,function(err,docs){
       if(err){
