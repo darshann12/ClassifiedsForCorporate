@@ -21,12 +21,9 @@
     
 
          <h4 id="price" >Rs {{advertisement.price}} </h4>
-        Is Negotiable :  {{advertisement.isNegotiable}}
-	
-    
-   <br>
-   <br>
-  
+        <p ng-if="advertisement.isNegotiable">Price is negotiable</p> 
+        <p ng-if="!advertisement.isNegotiable">No negotiation in the price</p>
+   
 
 <button ng-click="delete($index)" class="btn btn-primary" id="myadv">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
 <button ng-click="edit($index)" class="btn btn-primary" id="myadv">EDIT <span class="glyphicon glyphicon-pencil"></span></button>
