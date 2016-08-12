@@ -1,48 +1,38 @@
 <div ng-controller="advertisementSearchResultCtrl">
     <h3 class="search">Search Results</h3>
+	
     <div ng-repeat="advertisement in advertisements">
         <div class="container searchresults" >
-     
-    <table class="table">
-    <tbody>
-        
-      <tr bgcolor="black">
-        <td> Product name : {{advertisement.name}}</td>
-        <td>Sale Type : {{advertisement.saleType}}</td>
-      </tr>
-        
-      <tr bgcolor="black">
-        <td> </td>
-        <td></td>
-      </tr>
-        
-      <tr bgcolor="black">
-        <td> Category : {{advertisement.category}} </td>
-        <td> Expiry Date : {{advertisement.dateExp}}</td>
-      </tr>
-        
-      <tr bgcolor="black">
-        <td></td>
-        <td></td>
-      </tr>
-        
-      <tr bgcolor="black">
-        <td> Price : {{advertisement.price}}</td>
-        <td> Negotiable : {{advertisement.isNegotiable}}</td>
-      </tr>
-        
-      </tr>
-        <tr bgcolor="black">
-        <td></td>
-        <td></td>
-      </tr> 
-    
-    </tbody>
-  </table>
-  
-   <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})">SHOW</a>
+		
+     <div class="well well-lg " id="well">
+
+
   <br>
-  <div class="ridge borderclass"></div>
+     <h2 class="h2ad">{{advertisement.name}} </h2>
+<h5 class="h5ad" id="saletype"> ON {{advertisement.saleType}}</h5>
+      
+        
+    <br>
+        
+   
+   <h5 class="h4ad">  {{advertisement.category}} </h5>
+       <h5 class="h4ad">  Advertisement validity till  {{advertisement.dateExp}} </h5>
+   
+  
+    
+
+         <h4 id="price" >Rs {{advertisement.price}} <span class="glyphicons glyphicons-money"></span></h4>
+         Negotiable : {{advertisement.isNegotiable}}
+    
+          <br>
+ 
+  <br>
+  
+   <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show">SHOW <span class="glyphicon glyphicon-eye-open"></span></a> 
+  <br>
+
+  </div>
+  
   </div>
 
 </div>   
