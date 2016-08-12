@@ -2,7 +2,7 @@
 app.controller('createAdvertisementCtrl',['$scope','advertisementService','$state',function($scope,advertisementService,$state){
 $scope.advertisement={};   
 $scope.advertisement.isNegotiable=false;    
-$scope.saleTypeOptions=["RENT","SELL"];
+$scope.saleTypeOptions=["RENT","SALE"];
 $scope.categoryOptions=['BOOKS','ELECTRONIC APPLIANCES','FURNITURE','HOUSE','MOBILES TABLETS','VEHICLES'];
 $scope.createAdvertisement=function(){
     advertisementService.createAdvertisement($scope.advertisement).then(function(response){
