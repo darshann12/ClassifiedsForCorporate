@@ -1,5 +1,5 @@
 var app=angular.module('cfc');
-app.controller('showAdvertisementCtrl',['$scope','transactionService','advertisementService','$stateParams','$rootScope',function($scope,transactionService,advertisementService,$stateParams,$rootScope){
+app.controller('showAdvertisementCtrl',['$scope','$state','transactionService','advertisementService','$stateParams','$rootScope',function($scope,$state,transactionService,advertisementService,$stateParams,$rootScope){
 
     $scope.username=$rootScope.username;
 $scope.advertisement=$stateParams.advertisement;
@@ -24,10 +24,8 @@ $scope.createTransaction=function(){
     
  transactionService.createTransaction($scope.transaction).then(function(response){
         console.log("transation happened "+response.data);
-     
-     
-        
-     
+         alert("Your request is sent to seller");
+        $state.go("myTransactions");
  })
 }
 
