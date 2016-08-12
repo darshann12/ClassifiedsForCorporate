@@ -5,9 +5,9 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session')
 var color=require('colors');
+var cookieParser = require('cookie-parser');
 
-var currentSession;
-
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './../client')));
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(session({
     resave : false,
   secret: 'cfc secret',
-  cookie: { secure: true },
+  cookie: { secure:false },
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000
 }))

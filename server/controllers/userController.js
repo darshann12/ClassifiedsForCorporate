@@ -61,7 +61,7 @@ userController.deleteUser = function(req,res){
 userController.updateUser = function(req,res){
     console.log(req.session);
     
-    if(currentSession.username){
+    if(req.session.username){
     var query ={'username' : req.body.user.username};
   console.log(req.body.user.mobile);
     user.findOneAndUpdate(query, req.body.user, {upsert:false}, function(err, doc){
@@ -118,12 +118,12 @@ userController.login=function(req, res,next){
                    res.send("login failed");
                }else{
                
-              currentSession=req.session;
-              currentSession._id=record._id;
-              currentSession.username = record.username;
-             console.log("logged in successfully session username:"+currentSession.username);
+            
+              req.session._id=record._id;
+              req.session.username = record.username;
+             console.log("logged in successfully session username:"+req.session.username);
                
-                   res.send(currentSession.username);
+                   res.send(req.session.username);
                }
              
 
@@ -141,8 +141,8 @@ userController.login=function(req, res,next){
 }
 
 userController.logout = function(req,res,next){
-    console.log("loggin out"+currentSession.username);
-  currentSession.destroy(function(err){
+    console.log("loggin out"+req.session.username);
+  req.session.destroy(function(err){
   if(err){
   console.log(err);}
       else{
@@ -224,16 +224,16 @@ userController.isMobileExists = function(req,res){
 
 userController.isLoggedIn = function(req,res){
   
-    if(currentSession){
+    if(req.session){
     
-     console.log("Checking is user logged in"+currentSession.username);
+     console.log("Checking is user logged in"+req.session.username);
     
     }
     else{
         res.send(false);
     }
   
-if(currentSession.username){
+if(req.session.username){
     res.send(true);
 }
 else{

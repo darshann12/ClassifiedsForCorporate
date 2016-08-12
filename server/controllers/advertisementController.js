@@ -8,7 +8,7 @@ var advertisementController ={};
 
 advertisementController.createAdvertisement = function(req,res){
     var advertisementObj=req.body.advertisement;
-    advertisementObj.creator = currentSession.username;
+    advertisementObj.creator = req.session.username;
     advertisement.create(advertisementObj,function(err,advertisement){
      if(err){
      res.send(err);
@@ -98,7 +98,7 @@ var query = url_parts.query;
 
 advertisementController.getUserAdvertisements = function(req,res){
           
-             var username = currentSession.username;
+             var username = req.session.username;
       advertisement.find({'creator': username},function(err,docs){
  if(err){
  console.log("error occured while getting myAdvertisements");
