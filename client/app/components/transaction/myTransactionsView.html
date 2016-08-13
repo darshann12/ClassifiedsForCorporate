@@ -12,7 +12,11 @@
         <h3 align="center">Product:<b>{{transaction.product}}</b></h3>
             <p><b>Price:{{transaction.price}}</b></p>
             <p ng-if="transaction.buyer==username&&transaction.status=='PROCESSING'">Waiting for seller response</p>
-        <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">This product is offered to you by {{transaction.seller}} for the above price</p>
+        <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">This product is offered to you by {{transaction.seller}} for the above price <br>
+            <b>Give rating to seller[1 to 5]:</b>     
+            <select>
+                <option ng-repeat="x in ratings">{{x}}</option>
+            </select></p>
         <p ng-if="transaction.seller==username&&transaction.status=='REJECTED'">You rejected the offer</p>        
         <p ng-if="transaction.seller==username&&transaction.status=='APPROVED'">You offered {{transaction.product}} to {{transaction.buyer}} for the above price</p>
             

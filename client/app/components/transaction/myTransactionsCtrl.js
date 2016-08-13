@@ -1,7 +1,8 @@
 var app = angular.module('cfc');
 app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope','advertisementService','userService',function($scope,transactionService,$rootScope,advertisementService,userService){
-
-     $scope.ratings = [{rating:0 }];
+        
+        $scope.ratings=[1,2,3,4,5];
+//     $scope.ratings = [{rating:0 }];
 
     
     $scope.username=$rootScope.username;
