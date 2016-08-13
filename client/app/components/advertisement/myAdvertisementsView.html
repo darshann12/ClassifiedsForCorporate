@@ -25,8 +25,34 @@
         <p ng-if="!advertisement.isNegotiable">No negotiation in the price</p>
    
 
-<button ng-click="delete($index)" class="btn btn-primary" id="myadv">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
-<button ng-click="edit($index)" class="btn btn-primary" id="myadv">EDIT <span class="glyphicon glyphicon-pencil"></span></button>
+<button class="btn btn-primary" id="myadv" data-toggle="modal" data-target="#myModal">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
+ <button ng-click="edit($index)" class="btn btn-primary" id="myadv">EDIT <span class="glyphicon glyphicon-pencil"></span></button>        
+<div class="container">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="cancel" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">You are deleting the add</h4>
+        </div>
+        <div class="modal-body">
+          <p>click confirm to delete</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-cancel" data-dismiss="modal">cancel</button>
+             <button type="button" ng-click="delete($index)" class='btn btn-danger btn' data-dismiss="modal">confirm</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+   
+
+
   </div>
  <!--        <div class="container">
      
