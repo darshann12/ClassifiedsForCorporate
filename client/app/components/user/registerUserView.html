@@ -2,10 +2,10 @@
      <div class="col-md-4 col-md-offset-4">
     <form class=" col-xs-20 " name="form" >
         <div class=" panel panel-primary" style=" border-color:black" >
-        <div class="panel-heading" style=" background-color: #f05f40;border-color:black">REGISTER</div>
+        <div class="panel-heading" id="login" >REGISTER</div>
             <div class="panel-body">
          <div class="form-group">
-         <label class="control-label" for="firstName">Enter first name </label>        
+         <label class="control-label" for="firstName" >Enter first name </label>        
         <input type="text" id="firstName" name="firstName" ng-model="user.firstName"  ng-maxlength="12" class="form-control" required>
             
         </div>
@@ -58,7 +58,7 @@
 <input type="email" id="email" name="email" ng-model="user.email" class="form-control" required>
         </div>
         <br><div class="controls">
-                <button ng-click="createUser()" class="btn btn-success" >Register</button>
+                <button ng-click="createUser()" class="btn btn-success" id="reg">Register</button>
            </div>
         </div>
       </form>
