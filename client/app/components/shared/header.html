@@ -13,11 +13,11 @@
                   <ul class="nav navbar-nav navbar-right" >
                      <li>
                         <br>
-                        <input type="text" ng-model="searchQuery" class="form-control" id="usr">
+                        <input type="text" ng-model="searchQuery" class="form-control" id="adv">
                      </li>
                      <li>
                         <br>
-                        <button type="button" class="btn btn-primary" ng-click="searchAdvertisement()" id="searchbut">SEARCH</button>
+                        <button type="button" class="btn btn-primary" ng-click="searchAdvertisement()" id="adv">SEARCH</button>
                      </li>
                      <li>
                         <br>
@@ -41,7 +41,8 @@
                      </li>
                      <li ng-show="isLoggedIn">
                         <br>
-                       <button ng-click="logout()" type="button" class="btn btn-primary">LOG OUT</button>
+                         
+                       <button ng-click="logout()" type="button" class="btn btn-primary" id="adv">LOG OUT</button>
                      </li>
                   </ul>
                </div>
