@@ -112,6 +112,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         })
         .state('myMessages',{
             url:"/mymessages/",
+         data:{requireLogin:true},
             views:  {
                     "contentView":{
                     templateUrl:"app/components/conversationHistory/myMessagesView.html"
