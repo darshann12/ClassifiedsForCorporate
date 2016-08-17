@@ -206,6 +206,7 @@ app.run(function ($rootScope,$state,$http,$window,userService,chatSocket) {
       
     if (requireLogin && typeof $rootScope.username === 'undefined') {
       event.preventDefault();
+        alert("Please login first");
       $state.go("login");
     }
      
