@@ -1,0 +1,36 @@
+<div ng-controller="myMessagesCtrl">
+    <div class="col-md-4 col-md-offset-4"> 
+    <form class=" col-xs-20 " no-validate>
+
+    <div class=" panel panel-primary" style=" border-color:black" >
+  
+      <div class="panel-body">
+          <div class="form-group">
+            <label>To</label>
+            <input type="text" ng-model="toUser"   class="form-control " required>
+              </input>
+          </div>
+        <div ng-repeat="message in messageThread">
+        <label >{{message.from}} :{{message.message}}</label>
+            <br>
+        </div>
+          <div class="form-group">
+            <label>Message</label>
+          <textarea ng-model="message" rows="4" cols="50" name="message" class="form-control" placeholder="Enter message here"></textarea>
+          </div>
+        
+      
+      </div>
+    <button class="btn btn-primary center-block" ng-click="sendMessage()" >SEND</button>
+        <br>
+        
+    </div>
+    </div>
+</div>
+    </form>
+
+
+    
+
+
+</div>

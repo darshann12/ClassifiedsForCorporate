@@ -110,6 +110,18 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                     }
             }
         })
+        .state('myMessages',{
+            url:"/mymessages/",
+            views:  {
+                    "contentView":{
+                    templateUrl:"app/components/conversationHistory/myMessagesView.html"
+                    },
+                "header":{
+                        templateUrl:"app/components/shared/header.html"
+                    }
+            }
+            
+        })
     .state('login',{
             url:"/login/",
             views:  {
@@ -144,7 +156,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         
 }]);
 
-app.run(function ($rootScope,$state,$http,$window,userService) {
+app.run(function ($rootScope,$state,$http,$window,userService,chatSocket) {
    
     userService.isLoggedIn().then(function(response){
     
@@ -152,6 +164,7 @@ app.run(function ($rootScope,$state,$http,$window,userService) {
         
             if($window.sessionStorage.getItem("username")){
         $rootScope.username=$window.sessionStorage.getItem("username");
+                chatSocket.emit('userLogin',{username:$rootScope.username});
                 $state.go("home");
     }
         

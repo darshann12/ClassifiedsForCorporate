@@ -1,4 +1,4 @@
- var app=angular.module("cfc",['ui.router']);
+ var app=angular.module("cfc",['ui.router','btford.socket-io']);
 app.config([
   '$httpProvider',
   function($httpProvider) {

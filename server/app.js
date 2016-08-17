@@ -6,6 +6,10 @@ var path = require('path');
 var session = require('express-session')
 var color=require('colors');
 var cookieParser = require('cookie-parser');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var chatroom = require('./middlewares/chatroom');
+onlineUsers={};
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './../client')));
@@ -29,7 +33,10 @@ app.use('/', function (req, res, next) {
 
 app.use('/', routes);
 
+chatroom.init(io);
 
-app.listen(3000, function() {
+
+
+http.listen(3000, function() {
   console.log('Listening on port 3000...')
 })
