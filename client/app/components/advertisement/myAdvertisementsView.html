@@ -8,7 +8,7 @@
 
 
   <br>
-         <img src="{{advertisement.images[0].url}}" alt="Product preview not available" width="52%" height="45%">
+         <img class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
      <h2 class="h2ad">{{advertisement.name}} </h2>
 <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
       
@@ -26,8 +26,9 @@
         <p ng-if="advertisement.isNegotiable">Price is negotiable</p> 
         <p ng-if="!advertisement.isNegotiable">No negotiation in the price</p>
    
-
+<a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show"><button class="btn btn-primary">SHOW</button></a>
 <button class="btn btn-primary" id="myadv" data-toggle="modal" data-target="#myModal">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
+         
  <button ng-click="edit($index)" class="btn btn-primary" id="myadv">EDIT <span class="glyphicon glyphicon-pencil"></span></button>        
 <div class="container">
   <div class="modal fade" id="myModal" role="dialog">
