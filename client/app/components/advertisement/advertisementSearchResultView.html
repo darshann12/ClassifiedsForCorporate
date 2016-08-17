@@ -1,13 +1,17 @@
 <div ng-controller="advertisementSearchResultCtrl">
-    <h3 class="search">Search Results</h3>
+    <h3 ng-show="advertisements.length" class="search">Search Results</h3>
+    <h3 ng-hide="advertisements.length" class="search">No advertisement found</h3>
 	
     <div ng-repeat="advertisement in advertisements">
-        <div class="container searchresults" >
-		
+        
+        <img src="{{advertisement.images[0].url}}" alt="Product preview not available" width="300" height="200">
+        <div class="container" >
      <div class="well well-lg " id="well">
+         		 
 
 
   <br>
+        
      <h2 class="h2ad">{{advertisement.name}} </h2>
 <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
       

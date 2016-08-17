@@ -7,8 +7,17 @@ var url = require('url');
 var advertisementController ={};
 
 advertisementController.createAdvertisement = function(req,res){
-    var advertisementObj=req.body.advertisement;
+    
+    
+    
+    
+      console.log(req.files);
+    console.log(req.body);
+    var advertisementObj=req.body;
     advertisementObj.creator = req.session.username;
+    advertisementObj.images=[];
+    advertisementObj.images.push({url:req.files[0].filename});
+    
     advertisement.create(advertisementObj,function(err,advertisement){
      if(err){
      res.send(err);

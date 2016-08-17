@@ -1,5 +1,6 @@
 <div ng-controller="myAdvertisementsCtrl">
-    <h3 class="search">Your Advertisements</h3>
+    <h3 ng-show="myAdvertisements.length" class="search">Your Advertisements</h3>
+     <h3 ng-hide="myAdvertisements.length" class="search">No advertisements</h3>
     <div ng-repeat="advertisement in myAdvertisements">
 	       <div class="container searchresults" >
 		
