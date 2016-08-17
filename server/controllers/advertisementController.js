@@ -67,7 +67,10 @@ advertisementController.searchAdvertisement = function(req,res){
     var options =url_parts.query;
     var query = {};
     if('name' in options){
-    query =  { 'name' : options.name }
+        
+        
+        
+    query =  { 'name' :{ "$regex": options.name, "$options": "i" } }
     }
      query.status="OPEN";
 
