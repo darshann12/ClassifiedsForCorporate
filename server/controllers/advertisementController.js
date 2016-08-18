@@ -67,10 +67,19 @@ advertisementController.searchAdvertisement = function(req,res){
     var options =url_parts.query;
     var query = {};
     if('name' in options){
-        
-        
-        
     query =  { 'name' :{ "$regex": options.name, "$options": "i" } }
+    }
+    if('upperPriceLimit' in options){
+        query.price={$lte:options.upperPriceLimit}
+    }
+      if('category' in options){
+          query.category=options.category;
+    }
+    if('saleType' in options){
+        query.saleType=options.saleType;
+    }
+      if('isNegotiable' in options){
+          query.isNegotiable=options.isNegotiable;
     }
      query.status="OPEN";
 
