@@ -1,4 +1,3 @@
-
 var chatroom={};
 
 var activeUsers={};
@@ -29,12 +28,16 @@ chatroom.init=function(io){
     console.log("got new message"+data.message);
         //send message to intended reciever
        var socketid= activeUsers[data.to];
-        console.log("sending message to "+data.to+" with socketid"+activeUsers[data.to]);
-        
-        if (io.sockets.connected[socketid]) {
+        if(socketid){
+            console.log("sending message to "+data.to+" with socketid"+activeUsers[data.to]);
+      if (io.sockets.connected[socketid]) {
     io.sockets.connected[socketid].emit('newMessage', data);
 }
-
+        }
+        else{
+        socket.emit('userOffline');
+            
+        }
     })
 
 
