@@ -7,7 +7,8 @@ app.controller('createAdvertisementCtrl',['$scope','advertisementService','$stat
     $scope.createAdvertisement=function(){
 
         fileUpload.post("/advertisements",$scope.advertisement);
-
+        alert("Advertisement posted successfully");
+        $state.go("myAdvertisements");
         /*    advertisementService.createAdvertisement($scope.advertisement).then(function(response){
           if(response.data.name===$scope.advertisement.name){
                                 alert("advertisement posted successfully");

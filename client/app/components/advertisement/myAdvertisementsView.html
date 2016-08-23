@@ -8,26 +8,22 @@
 
 
                 <br>
-                <img class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
+                <img height="400" class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
                 <h2 class="h2ad">{{advertisement.name}} </h2>
                 <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
-
-
-                <br>
-
-
+              <br>
                 <h5 class="h4ad">  {{advertisement.category}} </h5>
                 <h5 class="h4ad">  Advertisement validity till  {{advertisement.dateExp}} </h5>
-
-
-
-
                 <h4 id="price" >Rs {{advertisement.price}} </h4>
                 <p ng-if="advertisement.isNegotiable">Price is negotiable</p> 
                 <p ng-if="!advertisement.isNegotiable">No negotiation in the price</p>
 
-                <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show"><button class="btn btn-primary">SHOW</button></a>
-                <button class="btn btn-primary" id="myadv" data-toggle="modal" data-target="#myModal">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
+                <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show"><button class="btn btn-info">VIEW MORE DETAILS</button></a>
+
+
+                <button class="btn btn-warning" id="myadv" data-toggle="modal" data-target="#myModal">DELETE <span class="glyphicon glyphicon-remove-sign"></span></button>
+
+
 
                 <button ng-click="edit($index)" class="btn btn-primary" id="myadv">EDIT <span class="glyphicon glyphicon-pencil"></span></button>        
                 <div class="container">
@@ -57,47 +53,7 @@
 
 
             </div>
-            <!--        <div class="container">
 
-<table class="table">
-<tbody>
-
-<tr class="info">
-<td> Product name : </td>
-<td>{{advertisement.name}}</td>
-</tr>
-
-<tr class="danger">
-<td> Sale Type : </td>
-<td>{{advertisement.saleType}}</td>
-</tr>
-
-<tr class="info">
-<td> Category : </td>
-<td>{{advertisement.category}}</td>
-</tr>
-
-<tr class="danger">
-<td> Expiry Date : </td>
-<td>{{advertisement.dateExp}}</td>
-</tr>
-
-<tr class="info">
-<td> Price : </td>
-<td>{{advertisement.price}}</td>
-</tr>
-
-</tr>
-<tr class="danger">
-<td> Negotiable : </td>
-<td>{{advertisement.isNegotiable}}</td>
-</tr> 
-
-</tbody>
-</table>
-
-
-</div> -->
 
 
         </div>

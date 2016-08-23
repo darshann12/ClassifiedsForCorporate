@@ -1,45 +1,22 @@
 <div ng-controller="showAdvertisementCtrl" >
-    <div class="field col-md-9 col-md-offset-9">  
-    </div>
     <div class="container">
-
-
-
-        <div class="well">
-            <div>
-                <div class="row">
-                    <button ng-if="advertisement.creator!=username" type="button" ng-click="createTransaction()" class="btn btn-success" id="buynow">Buy Now</button>
-                    <button ng-if="advertisement.creator!=username" type="button" ng-click="messageSeller()" class="btn btn-success" id="buynow">Chat</button>
+        <div class="jumbotron">
+            <img height="400" class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
+            <h3 id="your" ng-if="advertisement.creator==username">Your advertisement</h3> <h2>{{advertisement.name}} </h2>
+            <h3>Posted by :{{advertisement.creator}} </h3>
+            <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
+            <h4 id="price" >Rs {{advertisement.price}} </h4>  
+            <div ng-if="advertisement.isNegotiable">Negotiable</div>
+            <div ng-if="!advertisement.isNegotiable">Not Negotiable</div>
+            <div class="row">
+                <div class="col-md-offset-8">
+                    <div ng-if="advertisement.creator!=username" ng-click="createTransaction()" class="btn btn-primary btn-lg" type="button">Buy Now</div>
+                    <div ng-if="advertisement.creator!=username"  ng-click="messageSeller()" class="btn btn-info btn-lg"  type="button">Chat</div>
                 </div>
-                <img class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
-                <h3 id="your" ng-if="advertisement.creator==username">Your advertisement</h3> <h2>{{advertisement.name}} </h2>
-                <h3>Posted by :{{advertisement.creator}} </h3>
-                <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
-
-
-                <br>
-
-
-                <h5 class="h4ad">  {{advertisement.category}} </h5>
-                <!--<h5 class="h4ad">  Advertisement validity till  {{advertisement.dateExp}} </h5>-->
-
-
-
-
-                <h4 id="price" >Rs {{advertisement.price}} </h4>
-
-                <div ng-if="advertisement.isNegotiable">Negotiable</div>
-                <div ng-if="!advertisement.isNegotiable">Not Negotiable</div>
-
-
-                <br>
-
-                <br>
-
-
-                <br>
-
             </div>
+
+            <h5 class="h4ad">  {{advertisement.category}} </h5>
+
 
             <!-- <h3>Comments:</h3> -->
             <div >    

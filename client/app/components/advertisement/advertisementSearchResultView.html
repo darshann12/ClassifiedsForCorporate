@@ -1,6 +1,8 @@
 <div ng-controller="advertisementSearchResultCtrl">
     <h2 align="center" ng-if="searchQuery">Searching for "{{searchQuery}}"</h2><br>
+    <div class="container">
     <div class=row>
+        <div class="well clearfix">
         <div class="col-md-2">
             <div class="form-group">
                 <label>Price less than</label>
@@ -21,17 +23,17 @@
             </select>
         </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
         <div class="form-group">
             <label>Negotiable?<input type="checkbox"  value="false" ng-model="options.isNegotiable"  name="isNegotiable"  class="form-control">   </label>
 
-
-
         </div>
     </div>
-    <div class="col-md-4"> <button class="btn btn-primary"  ng-click="applyFilter()" >Apply Filter</button>
-        <button class="btn btn-primary"  ng-click="clearFilter()" >Clear Filter</button></div>
+    <div class="col-md-4"> <button class="btn btn-success"  ng-click="applyFilter()" >Apply Filter</button>
+        <button class="btn btn-danger"  ng-click="clearFilter()" >Clear Filter</button></div>
 </div>
+        </div>
+    </div>
 <h3 ng-show="advertisements.length" class="search">Search Results</h3>
 <h3 ng-hide="advertisements.length" class="search">No advertisement found</h3>
 
@@ -46,7 +48,7 @@
                 <div class="well">
 
 
-                    <img class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
+                    <img height="400"  class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
                     <br>
 
                     <h2 class="h2ad">{{advertisement.name}} </h2>
@@ -61,16 +63,16 @@
 
 
 
-
-                    <h4 id="price" >Rs {{advertisement.price}} </h4>
-                    Is Negotiable :  {{advertisement.isNegotiable}}
-
-
+                    <div class="row">
+                    <h4 >Rs {{advertisement.price}} </h4>
+                    <h3 ng-if="advertisement.isNegotiable">Negotiable</h3>
+                     <h3 ng-if="!advertisement.isNegotiable">Not Negotiable</h3>
+                        </div>
                     <br>
 
                     <br>
 
-                    <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show"><button class="btn btn-primary">SHOW</button></a> 
+                    <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show"><button class="btn btn-primary">VIEW MORE DETAILS</button></a> 
                     <br>
 
                 </div>
