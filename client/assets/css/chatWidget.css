@@ -36,8 +36,8 @@
 
 .panel-body
 {
-    overflow-y: scroll;
-    height: 250px;
+    
+   min-height: 200px; 
 }
 
 ::-webkit-scrollbar-track
