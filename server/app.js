@@ -16,14 +16,14 @@ onlineUsers={};
 
 //configure multer storage
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './uploads')
-  },
-  filename: function (req, file, cb) {
-      var newName= req.session.username+"-"+req.body.name+"-"+file.originalname;
-     
-    cb(null, newName);
-  }
+    destination: function (req, file, cb) {
+        cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+        var newName= req.session.username+"-"+req.body.name+"-"+file.originalname;
+
+        cb(null, newName);
+    }
 })
 
 
@@ -38,16 +38,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(session({
     resave : false,
-  secret: 'cfc secret',
-  cookie: { secure:false },
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000
+    secret: 'cfc secret',
+    cookie: { secure:false },
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000
 }))
 app.use(multer({storage:storage}).any());
 app.use(bodyParser.json())
 app.use('/', function (req, res, next) {
-  console.log(color.green('session:', req.session.username));
-  next();
+    console.log(color.green('session:', req.session.username));
+    next();
 });
 
 // parse application/json 
@@ -59,5 +59,5 @@ chatroom.init(io);
 
 
 http.listen(3000, function() {
-  console.log('Listening on port 3000...')
+    console.log('Listening on port 3000...')
 })

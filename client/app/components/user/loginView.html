@@ -3,36 +3,36 @@
     <br>
     <br>
     <div class="col-md-4 col-md-offset-4" style=" height:400px"> 
-    <form class=" col-xs-20 " name=" loginForm" role="form"  >
+        <form class=" col-xs-20 " name=" loginForm" role="form"  >
 
-    <div class=" panel panel-primary" id="panelborder">
-      <div class="panel-heading" id="login">LOGIN</div>
-      <div class="panel-body" style=" height:250px">
-          <div class="form-group">
-            <label>Username   <span class="glyphicon glyphicon-user"></span></label>
-            <input type="text" ng-model="user.username"  name="username"  class="form-control " required>
-              </input>
-          </div>
-        
-          <div class="form-group">
-            <label>Password   <span class="glyphicon glyphicon-lock"></span> </label>
-            <input type="password" ng-model="user.password"  name="password"  class=" form-control" required>
-              </input>
-         </div>
-		 <br>
-		 <button class="btn btn-primary center-block" ng-click="login()" name="loginButton" id="loginbut1">Login</button>
-		
-		 <div ng-controller='registerUserCtrl'>
- 
-	<br>
-	<span style="margin-right:-180px"><b>NEW USER?</b></span> <a ng-click="signUpUser()" name="signUpButton" id="signup"> SIGN UP TO PROCEED</a>
-</div>
-      </div>
+            <div class=" panel panel-primary" id="panelborder">
+                <div class="panel-heading" id="login">LOGIN</div>
+                <div class="panel-body" style=" height:250px">
+                    <div class="form-group">
+                        <label>Username   <span class="glyphicon glyphicon-user"></span></label>
+                        <input type="text" ng-model="user.username"  name="username"  class="form-control " required>
+                        </input>
+                </div>
+
+                <div class="form-group">
+                    <label>Password   <span class="glyphicon glyphicon-lock"></span> </label>
+                    <input type="password" ng-model="user.password"  name="password"  class=" form-control" required>
+                    </input>
+            </div>
+            <br>
+            <button class="btn btn-primary center-block" ng-click="login()" name="loginButton" id="loginbut1">Login</button>
+
+            <div ng-controller='registerUserCtrl'>
+
+                <br>
+                <span style="margin-right:-180px"><b>NEW USER?</b></span> <a ng-click="signUpUser()" name="signUpButton" id="signup"> SIGN UP TO PROCEED</a>
+            </div>
+            </div>
         <br>
-        
+
     </div>
-    </div>
-    </form>
-    <br>
-    <br>
+</div>
+</form>
+<br>
+<br>
 </div>

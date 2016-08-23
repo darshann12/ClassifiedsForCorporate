@@ -1,51 +1,51 @@
-         <header ng-controller="headerCtrl">
-             <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="advertisementSearchBarCtrl">
-            <div class="container-fluid">
-               <!-- Brand and toggle get grouped for better mobile display -->
-               <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                  </button>
-                  <a class="navbar-brand page-scroll" ui-sref="home" style="color:white;font-size:50px;margin-left:-10px;margin-top:15px">C F C</a>
-               </div>
-               <!-- Collect the nav links, forms, and other content for toggling -->
-               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right" >
-                     <li>
+<header ng-controller="headerCtrl">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="advertisementSearchBarCtrl">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" ui-sref="home" style="color:white;font-size:50px;margin-left:-10px;margin-top:15px">C F C</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" >
+                    <li>
                         <br>
                         <input type="text" ng-model="searchQuery" class="form-control" id="adv">
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <br>
                         <button type="button" class="btn btn-primary" ng-click="searchAdvertisement()" id="adv">SEARCH</button>
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <br>
                         <a class="page-scroll" ui-sref="createAdvertisement" id="adv">POST ADVERTISEMENT</a>
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <br>
                         <a class="page-scroll" ui-sref="myAdvertisements" id="adv">MY ADVERTISEMENT</a>
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <br>
                         <a class="page-scroll" ui-sref="myTransactions" id="adv">MY TRANSACTIONS</a>
-                     </li>
-                     <li>
+                    </li>
+                    <li>
                         <br>
                         <a class="page-scroll"ui-sref="myMessages" id="adv">MESSAGE</a>
-                     </li>
-                     <li ng-hide="isLoggedIn">
+                    </li>
+                    <li ng-hide="isLoggedIn">
                         <br>
                         <a class="page-scroll" ui-sref="login" ui-sref-opts="{ reload: true }"><button id="loginbut" type="button" class="btn btn-primary">LOG IN</button></a>
-                     </li>
-                     <li ng-show="isLoggedIn">
+                    </li>
+                    <li ng-show="isLoggedIn">
                         <br>
-                         
-                       <button ng-click="logout()" type="button" class="btn btn-primary" id="adv">LOG OUT</button>
-                     </li>
-                  </ul>
-               </div>
+
+                        <button ng-click="logout()" type="button" class="btn btn-primary" id="adv">LOG OUT</button>
+                    </li>
+                </ul>
             </div>
-         </nav>
+        </div>
+    </nav>
 </header>

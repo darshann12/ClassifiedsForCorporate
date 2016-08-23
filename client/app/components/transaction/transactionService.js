@@ -1,66 +1,66 @@
 var app=angular.module('cfc');
 app.factory('transactionService', ['$http', function($http) {
-                var factory = {};
+    var factory = {};
 
 
-                factory.createTransaction = function(transaction) {
-                   return  $http.post("/transactions",{transaction:transaction})
-                        .success(function(data, status, headers, config) {
-                            return data;
-                        })
-                        .error(function(data, status, header, config) {
-                            return "cannot fetch transaction";
-                        });
+    factory.createTransaction = function(transaction) {
+        return  $http.post("/transactions",{transaction:transaction})
+            .success(function(data, status, headers, config) {
+            return data;
+        })
+            .error(function(data, status, header, config) {
+            return "cannot fetch transaction";
+        });
 
-                }
+    }
 
-                factory.getTransaction = function(transactionId) {
-                  return   $http.get("/transactions", {
-                            params: {
-                                transaction: transactionId
-                            }
-                        })
-                        .then(function(response) {
-                            return response.data;
-                        });
+    factory.getTransaction = function(transactionId) {
+        return   $http.get("/transactions", {
+            params: {
+                transaction: transactionId
+            }
+        })
+            .then(function(response) {
+            return response.data;
+        });
 
-                }
-
-
-                    
-                    factory.deleteTransaction = function(transaction) {
-                     return    $http.delete("/transactions", {transaction:transaction})
-                            .success(function(data, status, headers, config) {
-                                return data;
-                            })
-                            .error(function(data, status, header, config) {
-                                return "cannot delete transaction";
-                            });
-                    }
-                    
-                    
-                       factory.updateTransaction = function(transaction) {
-                     return    $http.put("/transactions", {transaction:transaction})
-                            .success(function(data, status, headers, config) {
-                                return data;
-                            })
-                            .error(function(data, status, header, config) {
-                                return "cannot delete transaction";
-                            });
-                    }
-                       
-                       factory.searchTransaction = function(options) {
-                     return    $http.get("/transactions/search",{
-                            params: options
-                        })
-                            .success(function(data, status, headers, config) {
-                                return data;
-                            })
-                            .error(function(data, status, header, config) {
-                                return "cannot delete transaction";
-                            });
-                    }
+    }
 
 
-                        return factory;
-                    }]);
+
+    factory.deleteTransaction = function(transaction) {
+        return    $http.delete("/transactions", {transaction:transaction})
+            .success(function(data, status, headers, config) {
+            return data;
+        })
+            .error(function(data, status, header, config) {
+            return "cannot delete transaction";
+        });
+    }
+
+
+    factory.updateTransaction = function(transaction) {
+        return    $http.put("/transactions", {transaction:transaction})
+            .success(function(data, status, headers, config) {
+            return data;
+        })
+            .error(function(data, status, header, config) {
+            return "cannot delete transaction";
+        });
+    }
+
+    factory.searchTransaction = function(options) {
+        return    $http.get("/transactions/search",{
+            params: options
+        })
+            .success(function(data, status, headers, config) {
+            return data;
+        })
+            .error(function(data, status, header, config) {
+            return "cannot delete transaction";
+        });
+    }
+
+
+    return factory;
+}]);

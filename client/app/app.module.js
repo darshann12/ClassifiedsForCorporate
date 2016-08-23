@@ -1,8 +1,8 @@
- var app=angular.module("cfc",['ui.router','btford.socket-io']);
+var app=angular.module("cfc",['ui.router','btford.socket-io']);
 app.config([
-  '$httpProvider',
-  function($httpProvider) {
+    '$httpProvider',
+    function($httpProvider) {
 
-      $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" };
-  }
+        $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" };
+    }
 ])

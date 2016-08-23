@@ -3,10 +3,10 @@ app.controller("advertisementSearchBarCtrl",
                ['$scope','$state',function($scope,$state){
 
 
-$scope.searchAdvertisement=function(){
+                   $scope.searchAdvertisement=function(){
 
-    $state.go('advertisementSearchResult',{searchQuery:$scope.searchQuery});
-    
-}
+                       $state.go('advertisementSearchResult',{searchQuery:$scope.searchQuery});
 
-}])
+                   }
+
+               }])

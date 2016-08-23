@@ -13,7 +13,7 @@ router.use('/conversationHistory', conversationHistory);
 router.use('/transactions', transactions);
 
 router.get('/', function(req, res){
-	res.sendFile(path.join(__dirname, '../../client/', 'index.html'));
+    res.sendFile(path.join(__dirname, '../../client/', 'index.html'));
 });
 
 router.get('/isloggedin', userController.isLoggedIn);

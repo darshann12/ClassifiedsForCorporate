@@ -1,15 +1,15 @@
 var dbObj = require('./../config/mongoconnection'); //mongoose object required to communicate with database
 var userSchema = {
     firstName:{type:String, required : true},
-	lastName: {type:String, required : true},
+    lastName: {type:String, required : true},
     username: {type:String, required : true,unique : true},
     password: {type:String, required : true},
-	mobile: {type:Number,required : true,unique : true},
-	address: {type:String, required : true},
-	email: {type:String, required : true,unique : true},
+    mobile: {type:Number,required : true,unique : true},
+    address: {type:String, required : true},
+    email: {type:String, required : true,unique : true},
     ads: [{ type: Number , unique : true }],
     ratings:[{rate : {type:Number},
-             byUser : {type:String}}]
+              byUser : {type:String}}]
 };
 
 

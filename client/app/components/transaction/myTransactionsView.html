@@ -1,41 +1,41 @@
 <div ng-controller="myTransactionsCtrl">
-<div class="row">
-  <div class="col-sm-3" style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc;" >
+    <div class="row">
+        <div class="col-sm-3" style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc;" >
         </div>
 
-    <div class="col-sm-6"  style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
-        
-        <h2 align="center" ng-if="advertisement.length!=0">Your Transactions</h2>
-        <h3 ng-hide="myTransactions.length" align="center"> No Transactions Yet </h3>
-        <div class="well" ng-repeat="transaction in myTransactions"> 
-        
-        <h3 align="center">Product:<b>{{transaction.product}}</b></h3>
-            <p><b>Price:{{transaction.price}}</b></p>
-            <p ng-if="transaction.buyer==username&&transaction.status=='PROCESSING'">Waiting for seller response</p>
-        <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">This product is offered to you by {{transaction.seller}} for the above price <br>
-            <b>Give rating to seller[1 to 5]:</b>     
-            <select>
-                <option ng-repeat="x in ratings">{{x}}</option>
-            </select></p>
-        <p ng-if="transaction.seller==username&&transaction.status=='REJECTED'">You rejected the offer</p>        
-        <p ng-if="transaction.seller==username&&transaction.status=='APPROVED'">You offered {{transaction.product}} to {{transaction.buyer}} for the above price</p>
-            
-        <p ng-if="transaction.buyer==username&&transaction.status=='REJECTED'">Your offer is rejected by the seller</p>
-  
-        
-        <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-success" ng-click="update('APPROVED',$index)" >Approve</button>
-        <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-danger" ng-click="update('REJECTED',$index)" >Reject</button>
+        <div class="col-sm-6"  style="padding-right:20px;padding-left:20px; border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
+
+            <h2 align="center" ng-if="advertisement.length!=0">Your Transactions</h2>
+            <h3 ng-hide="myTransactions.length" align="center"> No Transactions Yet </h3>
+            <div class="well" ng-repeat="transaction in myTransactions"> 
+
+                <h3 align="center">Product:<b>{{transaction.product}}</b></h3>
+                <p><b>Price:{{transaction.price}}</b></p>
+                <p ng-if="transaction.buyer==username&&transaction.status=='PROCESSING'">Waiting for seller response</p>
+                <p ng-if="transaction.buyer==username&&transaction.status=='APPROVED'">This product is offered to you by {{transaction.seller}} for the above price <br>
+                    <b>Give rating to seller[1 to 5]:</b>     
+                    <select>
+                        <option ng-repeat="x in ratings">{{x}}</option>
+                    </select></p>
+                <p ng-if="transaction.seller==username&&transaction.status=='REJECTED'">You rejected the offer</p>        
+                <p ng-if="transaction.seller==username&&transaction.status=='APPROVED'">You offered {{transaction.product}} to {{transaction.buyer}} for the above price</p>
+
+                <p ng-if="transaction.buyer==username&&transaction.status=='REJECTED'">Your offer is rejected by the seller</p>
+
+
+                <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-success" ng-click="update('APPROVED',$index)" >Approve</button>
+                <button ng-if="transaction.status=='PROCESSING'&&transaction.seller==username" class= "btn btn-danger" ng-click="update('REJECTED',$index)" >Reject</button>
+            </div>
+
         </div>
-        
+        <div class="col-sm-3">
+        </div>
+
+
+
+
     </div>
-    <div class="col-sm-3">
-        </div>
 
-
-    
-    
-    </div>
-    
-  </div>
+</div>
 
 </div>
