@@ -14,6 +14,10 @@ $scope.advertisement.comments.push($scope.comment);
 
 } 
 
+$scope.messageSeller=function(){
+
+$state.go('myMessages',{toUser:$scope.advertisement.creator});
+}
 $scope.createTransaction=function(){
     $scope.transaction={seller:$scope.advertisement.creator, 
                         buyer:$rootScope.username,                                                                                              price:$scope.advertisement.price,

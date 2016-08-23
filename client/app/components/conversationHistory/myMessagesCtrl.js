@@ -1,7 +1,9 @@
 var app = angular.module('cfc');
-app.controller('myMessagesCtrl',['$scope','chatSocket','$rootScope',function($scope,chatSocket,$rootScope){
+app.controller('myMessagesCtrl',['$scope','chatSocket','$rootScope','$stateParams',function($scope,chatSocket,$rootScope,$stateParams){
 
 $scope.messageThread=[];   
+    
+    $scope.toUser=$stateParams.toUser;
  chatSocket.on('newMessage',function(data){
  
   $scope.messageThread.push(data); 

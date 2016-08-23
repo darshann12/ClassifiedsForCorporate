@@ -112,6 +112,9 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
         })
         .state('myMessages',{
             url:"/mymessages/",
+           params: {
+     toUser: null
+        },
          data:{requireLogin:true},
             views:  {
                     "contentView":{

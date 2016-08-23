@@ -7,9 +7,13 @@
 
      <div class="well">
 <div>
+    <div class="row">
  <button ng-if="advertisement.creator!=username" type="button" ng-click="createTransaction()" class="btn btn-success" id="buynow">Buy Now</button>
+     <button ng-if="advertisement.creator!=username" type="button" ng-click="messageSeller()" class="btn btn-success" id="buynow">Chat</button>
+    </div>
          <img class="center-block" ng-src="{{advertisement.images[0].url}}" align="middle"  alt="Product preview not available">
-    		 <h3 id="your" ng-if="advertisement.creator==username">Your advertisement</h3> <h2 class="h2ad">{{advertisement.name}} </h2>
+    		 <h3 id="your" ng-if="advertisement.creator==username">Your advertisement</h3> <h2>{{advertisement.name}} </h2>
+     <h3>Posted by :{{advertisement.creator}} </h3>
 <h5 class="h5ad" id="saletype"> FOR {{advertisement.saleType}}</h5>
       
          
