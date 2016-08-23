@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">CFC</a>
+    <a class="navbar-brand"ui-sref="home">CFC</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,8 +16,9 @@
       <li class="active"><a ui-sref="createAdvertisement">POST ADVERTISEMENTS</a></li>
       <li><a  ui-sref="myAdvertisements">MY ADVERTISEMENTS</a></li>
         <li><a  ui-sref="myTransactions">MY TRANSACTIONS</a></li>
+        <li ><a ui-sref="myMessages">MESSAGE</a></li>
     </ul>
-    <div class="col-sm-2 col-md-2" ng-controller="advertisementSearchBarCtrl">
+    <div class="col-sm-2 col-md-4" ng-controller="advertisementSearchBarCtrl">
         <form class="navbar-form" role="search">
         <div class="input-group">
             <input ng-model="searchQuery" type="text" class="form-control" placeholder="Search" name="q">
@@ -28,7 +29,7 @@
         </form>
     </div>
     <ul class="nav navbar-nav navbar-right">
-        <li ><a ui-sref="myMessages">MESSAGE</a></li>
+        
       <li ng-hide="isLoggedIn"><a ui-sref="login" ui-sref-opts="{ reload: true }">LOGIN</a></li>
         <li ng-show="isLoggedIn"><a ng-click="logout()">LOGOUT</a></li>
 
