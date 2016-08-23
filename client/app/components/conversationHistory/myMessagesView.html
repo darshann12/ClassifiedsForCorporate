@@ -1,4 +1,4 @@
-<div ng-controller="myMessagesCtrl">
+<!--<div ng-controller="myMessagesCtrl">
     <div class="col-md-4 col-md-offset-4"> 
         <h1 align="center">Message Box</h1>
         <form class=" col-xs-20 " no-validate>
@@ -29,9 +29,42 @@
     </div>
 </div>
 </form>
-
-
-
-
-
+</div>-->
+<div class="container" ng-controller="myMessagesCtrl">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary" >
+                <div class="panel-heading clearfix" style="background-color:black;">
+                    <span class="glyphicon glyphicon-comment"></span> Chat <input ng-model="toUser" id="btn-input" type="text" class="form-control input-sm" placeholder="To Username" />
+                
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        <div ng-repeat="message in messageThread">
+                            <li class="left clearfix">
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font class="{{message.css}}"">{{message.from}}</strong> <small class="{{message.css}}">
+                                       
+                                </div>
+                                <p>
+                                    {{message.message}}
+                                </p>
+                            </div>
+                        </li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input ng-model="message" id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button ng-click="sendMessage()" class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
