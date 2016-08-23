@@ -12,7 +12,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/home/home.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })
@@ -24,7 +24,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/transaction/myTransactionsView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })
@@ -35,7 +35,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/advertisement/advertisement.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })
@@ -47,7 +47,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/advertisement/createAdvertisement.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })  
@@ -62,7 +62,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/advertisement/editAdvertisementView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     }) 
@@ -78,7 +78,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/advertisement/showAdvertisement.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
 
@@ -93,7 +93,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/advertisement/advertisementSearchResultView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })
@@ -106,7 +106,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/advertisement/myAdvertisementsView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })
@@ -121,7 +121,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/conversationHistory/myMessagesView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
 
@@ -133,7 +133,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/user/loginView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
 
@@ -153,7 +153,7 @@ app.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$s
                 templateUrl:"app/components/user/registerUserView.html"
             },
             "header":{
-                templateUrl:"app/components/shared/header.html"
+                templateUrl:"app/components/shared/header1.html"
             }
         }
     })   
