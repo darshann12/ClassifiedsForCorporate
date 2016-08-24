@@ -15,7 +15,7 @@ app.controller('headerCtrl',['$scope','$rootScope','userService','$window','$sta
     
     
     $scope.showNotification=function(){
-    
+        $scope.notification=null;
         $state.go("myTransactions");
     }
     if($rootScope.username){
