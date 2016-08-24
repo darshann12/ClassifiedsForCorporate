@@ -28,7 +28,7 @@ app.controller('showAdvertisementCtrl',['$scope','$state','transactionService','
                             advertisement:$scope.advertisement._id
                            };
 
-        var tempMessage=$scope.transaction.seller+"is requesting to buy"+$scope.transaction.product;
+        var tempMessage=$scope.transaction.seller+" is requesting to buy "+$scope.transaction.product;
         chatSocket.emit('notification',{message:tempMessage,reciever:$scope.transaction.seller});
         transactionService.createTransaction($scope.transaction).then(function(response){
             console.log("transation happened "+response.data);

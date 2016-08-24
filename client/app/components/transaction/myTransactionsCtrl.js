@@ -31,7 +31,7 @@ app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope',
 
     $scope.update=function(updatedStatus,index){
         $scope.myTransactions[index].status=updatedStatus;
-chatSocket.emit("notification",{message:"your request to buy"+$scope.myTransactions[index].product+" been"+updatedStatus,reciever:$scope.myTransactions[index].buyer});
+chatSocket.emit("notification",{message:"your request to buy "+$scope.myTransactions[index].product+" has been "+updatedStatus,reciever:$scope.myTransactions[index].buyer});
         transactionService.updateTransaction($scope.myTransactions[index]).then(function(response){
 
             if(response.data.status==updatedStatus){
