@@ -1,9 +1,9 @@
 var app = angular.module('cfc');
-app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope','advertisementService','userService',function($scope,transactionService,$rootScope,advertisementService,userService){
+app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope','advertisementService','userService','chatSocket',function($scope,transactionService,$rootScope,advertisementService,userService,chatSocket){
 
     $scope.ratings=[1,2,3,4,5];
     //     $scope.ratings = [{rating:0 }];
-
+   
 
     $scope.username=$rootScope.username;
     transactionService.searchTransaction({seller:$scope.username,buyer:$scope.username}).then(function(response){
@@ -31,7 +31,7 @@ app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope',
 
     $scope.update=function(updatedStatus,index){
         $scope.myTransactions[index].status=updatedStatus;
-
+chatSocket.emit("notification",{message:"your request to buy"+$scope.myTransactions[index].product+" been"+updatedStatus,reciever:$scope.myTransactions[index].buyer});
         transactionService.updateTransaction($scope.myTransactions[index]).then(function(response){
 
             if(response.data.status==updatedStatus){

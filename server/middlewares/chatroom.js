@@ -24,6 +24,22 @@ chatroom.init=function(io){
 
         })  
 
+        socket.on('notification',function(data){
+            var socketid= activeUsers[data.reciever];
+            if(socketid){
+                
+                if (io.sockets.connected[socketid]) {
+                    io.sockets.connected[socketid].emit('notification', data);
+                }
+            }
+            else{
+                socket.emit('userOffline');
+
+            }
+
+
+        })  
+
         socket.on('sendMessage',function(data){
             console.log("got new message"+data.message);
             //send message to intended reciever
