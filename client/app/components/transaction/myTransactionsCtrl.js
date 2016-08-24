@@ -39,7 +39,7 @@ app.controller('myTransactionsCtrl',['$scope','transactionService','$rootScope',
                 alert("updated status");   
             }
             else{
-                alert("failed to accept");
+                
 
             }
             if(updatedStatus=="APPROVED"){
