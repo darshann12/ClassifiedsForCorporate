@@ -1,5 +1,6 @@
-<nav ng-controller="headerCtrl" class="navbar navbar-default" role="navigation">
+<nav ng-controller="headerCtrl" class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
+    <div>
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="sr-only">Toggle navigation</span>
@@ -13,10 +14,10 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav row">
-      <li class="active"><a ui-sref="createAdvertisement">POST ADVERTISEMENTS</a></li>
-      <li><a  ui-sref="myAdvertisements">MY ADVERTISEMENTS</a></li>
-        <li><a  ui-sref="myTransactions">MY TRANSACTIONS</a></li>
-        <li ><a ui-sref="myMessages">MESSAGE</a></li>
+      <li ui-sref-active="active"><a ui-sref="createAdvertisement">POST ADVERTISEMENTS</a></li>
+      <li ui-sref-active="active"><a  ui-sref="myAdvertisements">MY ADVERTISEMENTS</a></li>
+        <li ui-sref-active="active"><a  ui-sref="myTransactions">MY TRANSACTIONS</a></li>
+        <li ui-sref-active="active"><a ui-sref="myMessages">MESSAGE</a></li>
     </ul>
     <div class="col-sm-2 col-md-2" ng-controller="advertisementSearchBarCtrl">
         <form class="navbar-form" role="search">
@@ -30,9 +31,10 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
         
-      <li ng-hide="isLoggedIn"><a ui-sref="login" ui-sref-opts="{ reload: true }">LOGIN</a></li>
+      <li ui-sref-active="active" ng-hide="isLoggedIn"><a ui-sref="login" ui-sref-opts="{ reload: true }">LOGIN</a></li>
         <li ng-show="isLoggedIn"><a ng-click="logout()">LOGOUT</a></li>
 
     </ul>
   </div><!-- /.navbar-collapse -->
+    </div>
 </nav>
