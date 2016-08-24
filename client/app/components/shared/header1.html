@@ -24,7 +24,7 @@
         <div class="input-group">
             <input ng-model="searchQuery" type="text" class="form-control" placeholder="Search" name="q">
             <div class="input-group-btn">
-                <button ng-click="searchAdvertisement()" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
+                <button ng-disabled="!searchQuery" ng-click="searchAdvertisement()" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
         </form>

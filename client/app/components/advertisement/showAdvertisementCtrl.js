@@ -4,9 +4,10 @@ app.controller('showAdvertisementCtrl',['$scope','$state','transactionService','
     $scope.username=$rootScope.username;
     $scope.advertisement=$stateParams.advertisement;
     $scope.addComment=function(){
-        alert($scope.commentBody);
+      
         $scope.comment={body:$scope.commentBody,date:Date.now,user:$rootScope.username} ;  
         $scope.advertisement.comments.push($scope.comment);
+        $scope.commentBody=null;
         advertisementService.updateAdvertisement($scope.advertisement).then(function(response){
             console.log("updated add "+response.data);
 
