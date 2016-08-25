@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-2 col-sm-2">
                 <div class="form-group">
-                    <label>saleType:</label>
+                    <label>Rent/sell:</label>
                     <select  ng-model="options.saleType" ng-options="option for option in saleTypeOptions" name="saleType"  class="form-control" >
                     </select>
                 </div>
@@ -50,14 +50,14 @@
                          </div>
                             <div class="col-md-4 col-md-offset-2">
                         <h2 class="h2">{{advertisement.name}} </h2>
-                                <h5 class="h4">  {{advertisement.category}} </h5>
+                                <h5 >  {{advertisement.category}} </h5>
                         <h5 class="h5" id="saletype"> FOR {{advertisement.saleType}}</h5>
                      
-                        <div class="row">
+                     
                             <h4 >Rs {{advertisement.price}} </h4>
-                            <h3 ng-if="advertisement.isNegotiable">Negotiable</h3>
-                            <h3 ng-if="!advertisement.isNegotiable">Not Negotiable</h3>
-                        </div>
+                            <h3 ng-if="advertisement.isNegotiable">Price Negotiable</h3>
+                            <h3 ng-if="!advertisement.isNegotiable">Price Not Negotiable</h3>
+                     
                       <a ui-sref="showAdvertisement({advertisement:{{advertisement}}})" id="show"><button class="btn btn-primary">VIEW MORE DETAILS</button></a> 
                  
 
